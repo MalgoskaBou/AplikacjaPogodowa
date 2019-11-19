@@ -24,4 +24,5 @@ const web = {
     } // <-- end of init function
 }; // <-- end of web obj.
 
-document.onload = web.init();
+document.onload = web.init(); //To trzeba chyba usunąć gdy zaczniemy pracę z Webpackiem
+//
