@@ -1,4 +1,3 @@
-# Needs to uncommit below when they ready
-
 # webpack.config.js
-# npm_modules/
+
+node_modules/
