@@ -1,9 +1,15 @@
 .container {
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr minmax(800px, 1200px) 1fr;
     grid-template-rows: 1fr minmax(700px, 850px) 1fr;
     justify-items: stretch;
     align-items: stretch;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        display: block;
+    }
 }
