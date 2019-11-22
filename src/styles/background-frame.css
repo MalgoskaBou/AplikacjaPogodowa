@@ -2,7 +2,7 @@
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     display: grid;
-    grid-template-columns: 1fr minmax(600px, 750px) 1fr;
+    grid-template-columns: minmax(100px, 250px) minmax(600px, 750px) minmax(100px, 250px);
     grid-template-rows: minmax(200px, 250px) minmax(400px, 500px) 1fr;
     justify-items: stretch;
     align-items: stretch;

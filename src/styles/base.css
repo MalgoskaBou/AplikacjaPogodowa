@@ -3,7 +3,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr minmax(800px, 1200px) 1fr;
-    grid-template-rows: 1fr minmax(600px, 850px) 1fr;
+    grid-template-rows: 1fr minmax(700px, 850px) 1fr;
     justify-items: stretch;
     align-items: stretch;
 }
