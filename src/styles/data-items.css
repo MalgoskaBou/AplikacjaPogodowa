@@ -23,12 +23,12 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 .forecast__day {
     width: 70px;
-    align-self: stretch;
+    height: 100px;
     background: #fff;
     display: flex;
     flex-direction: column;

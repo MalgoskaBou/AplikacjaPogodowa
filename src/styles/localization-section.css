@@ -33,3 +33,7 @@
 .form__list-item p {
     display: inline-block;
 }
+
+.main__date {
+    padding-top: 40px;
+}
