@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What the weather?</title>
+<link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <div class="container">
+        <div class="background-frame">
+            <div class="background-frame__color"></div>
+            <div class="background-frame__main">
+                <div class="main__localization">
+                    <form class="main__form">
+                        <input type="text" class="form__search" placeholder="Enter the name of city">
+                        <div class="form__icon icon-search"></div>
+                        <ul class="form__suggestions">
+                            <li class="form__list-item">
+                                <p class="form__city user-city">Wrocław</p>
+                                <p class="form__country">Lower Silesia, Poland</p>
+                            </li>
+                            <li class="form__list-item">
+                                <p class="form__city">Berlin</p>
+                                <p class="form__country">Berlin, Germany</p>
+                            </li>
+                            <li class="form__list-item">
+                                <p class="form__city">Warsaw</p>
+                                <p class="form__country">Masovia, Poland</p>
+                            </li>
+                        </ul>
+                    </form>
+                    <p class="main__date"><span>Tuesday</span> --- <span>19 November</span></p>
+                </div>
+                <div class="main__data">
+                    <p class="data__temp-big"><span>16 </span>°</p>
+                    <div class="data__basic">
+                        <p class="data__temp-small"><span>16</span>° / <span>9</span>°</p>
+                        <p class="data__conditions">Partly sunny</p>
+
+                    </div>
+                    <div class="data__detail">
+                        <p class="data__wind">Wind: <span>15</span> km/h</p>
+                        <p class="data__pressure">Pressure: <span>1018</span> mbar</p>
+                        <p class="data__humidity">Humidity: <span>10</span>%</p>
+                    </div>
+                    <div class="data__icon"></div>
+                    <div class="data__forecast">
+                        <div class="forecast__day">
+                            <p class="day__weekday">Mon</p>
+                            <div class="day__icon"></div>
+                            <p class="day__temp"><span>16</span>°</p>
+                        </div>
+                        <div class="forecast__day">
+                            <p class="day__weekday">Wed</p>
+                            <div class="day__icon"></div>
+                            <p class="day__temp"><span>16</span>°</p>
+                        </div>
+                        <div class="forecast__day">
+                            <p class="day__weekday">Thu</p>
+                            <div class="day__icon"></div>
+                            <p class="day__temp"><span>16</span>°</p>
+                        </div>
+                        <div class="forecast__day">
+                            <p class="day__weekday">Fri</p>
+                            <div class="day__icon"></div>
+                            <p class="day__temp"><span>16</span>°</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<script type="text/javascript" src="main.js"></script></body>
+
+</html>
