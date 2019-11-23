@@ -1,7 +1,5 @@
 const path = require('path');
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -14,7 +12,7 @@ module.exports = {
     },
 
     output: {
-        filename: '[name]-[contenthash:6].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../', 'dist')
     },
 
@@ -48,7 +46,7 @@ module.exports = {
             template: 'src/index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: '[name]-[contenthash:6].css',
+            filename: '[name].css',
         }),
         new CopyPlugin([{
             from: 'src/assets',
