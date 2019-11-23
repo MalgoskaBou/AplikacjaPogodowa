@@ -1,0 +1,50 @@
+.data__temp-big {
+    grid-area: temperature;
+    font-size: 144px;
+}
+
+.data__basic {
+    grid-area: basic;
+    font-size: 24px;
+}
+
+.data__detail {
+    grid-area: details;
+    font-size: 18px;
+}
+
+.data__icon {
+    grid-area: img;
+}
+
+.data__forecast {
+    grid-area: forecast;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.forecast__day {
+    width: 70px;
+    align-self: stretch;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.day__weekday {
+    align-self: center;
+    font-size: 14px;
+}
+
+.day__icon {
+    align-self: right;
+}
+
+.day__temp {
+    align-self: left;
+    font-size: 24px;
+}
