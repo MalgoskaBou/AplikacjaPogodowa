@@ -1,6 +1,7 @@
 .data__temp-big {
     grid-area: temperature;
     font-size: 144px;
+    line-height: 1;
 }
 
 .data__basic {
@@ -20,7 +21,7 @@
     justify-self: center;
     background: url("/assets/02d.svg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: contain;
 }
 
@@ -36,6 +37,8 @@
 .forecast__day {
     width: 70px;
     height: 100px;
+    padding: 5px;
+    overflow: hidden;
     background: #fff;
     display: flex;
     flex-direction: column;
