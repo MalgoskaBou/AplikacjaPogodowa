@@ -1,0 +1,35 @@
+.main__data {
+    padding: 0 20px 30px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-areas:
+        "temperature img"
+        "basic img"
+        "details forecast";
+    justify-items: left;
+    align-items: center;
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .main__data {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "temperature icon"
+            "basic img"
+            "details img"
+            "forecast forecast";
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 800px) {
+    .background-frame__main {
+        grid-template-columns: 3fr 3fr 2fr;
+        grid-template-rows: 2fr 1fr 1fr;
+        grid-template-areas:
+            "temperature img forecast"
+            "basic img forecast"
+            "details img forecast";
+    }
+}

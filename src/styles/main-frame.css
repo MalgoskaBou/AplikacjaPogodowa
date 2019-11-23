@@ -1,0 +1,38 @@
+.background-frame__main {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    align-self: stretch;
+    justify-self: stretch;
+    background: var(--cream);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14);
+    border-radius: 4px;
+    display: grid;
+    grid-template-rows: minmax(200px, 250px) minmax(400px, 500px);
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+@media screen and (orientation: portrait) and (max-width: 800px) {
+    .background-frame__main {
+        width: 100%;
+        min-width: 300px;
+        height: 100%;
+        min-height: 600px;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .background-frame__main {
+        grid-template-rows: 1fr 3fr;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 800px) {
+    .background-frame__main {
+        width: 100%;
+        min-width: 600px;
+        height: 100%;
+        min-height: 400px;
+        grid-template-rows: 1fr 3fr;
+    }
+}

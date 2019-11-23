@@ -1,2 +1,8 @@
 @import 'reset.css';
-@import 'hello.css';
+@import 'variables.css';
+@import 'base.css';
+@import 'background-frame.css';
+@import 'main-frame.css';
+@import 'localization-section.css';
+@import 'data-section.css';
+@import 'data-items.css';

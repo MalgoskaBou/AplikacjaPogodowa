@@ -1,0 +1,35 @@
+.main__localization {
+    position: relative;
+    padding: 16px 20px 0 20px;
+}
+
+.form__search {
+    /* position: relative; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-bottom: 2px solid var(--dark);
+    border-radius: 4px 4px 0px 0px;
+}
+
+.form__suggestions {
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    position: absolute;
+    list-style: none;
+}
+
+.form__list-item {
+    padding: 20px;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.form__list-item p {
+    display: inline-block;
+}
