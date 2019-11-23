@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     border-bottom: 2px solid var(--dark);
-    border-radius: 4px 4px 0px 0px;
+    /* border-radius: 4px 4px 0px 0px; */
 }
 
 .main__form::after {
@@ -25,9 +25,10 @@
     width: 100%;
     padding: 20px;
     font-size: 24px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     outline: 0;
     border: none;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .form__icon {
@@ -48,7 +49,7 @@
     left: 0;
     width: 100%;
     padding: 0 20px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     list-style: none;
 }
 
@@ -58,9 +59,34 @@
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.form__list-item p {
+.form__city,
+.form__country {
     display: inline-block;
 }
+
+.form__city {
+    min-width: 200px;
+}
+
+.form__country {
+    opacity: 0.5;
+}
+
+.user-city {
+    position: relative;
+}
+
+.user-city::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    content: "Your location";
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.6;
+}
+
 
 .main__date {
     padding-top: 40px;
