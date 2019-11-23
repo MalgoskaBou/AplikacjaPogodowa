@@ -44,11 +44,17 @@
 
 .day__weekday {
     align-self: center;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .day__icon {
-    align-self: right;
+    width: 70%;
+    height: 40%;
+    align-self: center;
+    background: url("/assets/50d.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .day__temp {
