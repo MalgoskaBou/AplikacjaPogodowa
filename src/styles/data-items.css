@@ -15,6 +15,13 @@
 
 .data__icon {
     grid-area: img;
+    width: 80%;
+    height: 80%;
+    justify-self: center;
+    background: url("/assets/02d.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .data__forecast {
