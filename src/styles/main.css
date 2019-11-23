@@ -1,4 +1,5 @@
 @import 'reset.css';
+@import 'variables.css';
 @import 'base.css';
 @import 'background-frame.css';
-@import 'app-frame.css';
+@import 'main-frame.css';
