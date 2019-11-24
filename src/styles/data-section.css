@@ -1,35 +1,89 @@
 .main__data {
-    padding: 0 20px 30px 20px;
+    padding: 20px;
+    padding-top: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr repeat(2, 1fr);
     grid-template-areas:
-        "temperature img"
-        "basic img"
-        "details forecast";
+        "temperature    img"
+        "basic               img"
+        "details            forecast";
     justify-items: left;
     align-items: start;
 }
 
-@media screen and (orientation: portrait) and (max-width: 600px) {
+@media screen and (orientation: landscape) and (max-height: 670px) {
     .main__data {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 3fr) 2fr;
+        grid-template-rows: 3fr 2fr;
         grid-template-areas:
-            "temperature icon"
-            "basic img"
-            "details img"
-            "forecast forecast";
+            "temperature    img       forecast"
+            "basic               details   forecast";
     }
 }
 
-@media screen and (orientation: landscape) and (max-width: 800px) {
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .main__data {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "temperature    img"
+            "basic               img"
+            "details             details"
+            "forecast           forecast";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+@media screen and (orientation: landscape) and (max-width: 600px) {
     .background-frame__main {
-        grid-template-columns: 3fr 3fr 2fr;
-        grid-template-rows: 2fr 1fr 1fr;
+        padding: 0 10px 20px 10px;
+        grid-template-columns: repeat(2, 3fr) 2fr;
+        grid-template-rows: 2fr repeat(2, 1fr);
         grid-template-areas:
             "temperature img forecast"
             "basic img forecast"
             "details img forecast";
     }
 }
+
+@media screen and (orientation: portrait) and (max-width: 800px) {
+    .main__data {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 2fr repeat(2, 1fr);
+        grid-template-areas:
+            "temperature img"
+            "basic img"
+            "details forecast";
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .main__data {
+        padding: 0 10px 20px 10px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "temperature img"
+            "basic img"
+            "details details"
+            "forecast forecast";
+        align-items: center;
+    }
+} */
