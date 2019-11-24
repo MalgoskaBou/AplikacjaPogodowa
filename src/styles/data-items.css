@@ -38,7 +38,7 @@
     width: 70px;
     height: 100px;
     padding: 5px;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -65,12 +65,86 @@
     font-size: 24px;
 }
 
+@media screen and (orientation: landscape) and (max-height: 670px) {
+    .data__temp-big {
+        font-size: 100px;
+        padding-top: 20px;
+    }
+
+    .data__basic {
+        font-size: 18px;
+    }
+
+    .data__detail {
+        font-size: 16px;
+    }
+
+    .data__forecast {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .forecast__day {
+        width: 120px;
+        height: 50px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .day__weekday {
+        width: 30%;
+        font-size: 14px;
+    }
+
+    .day__icon {
+        width: 40%;
+        height: 70%;
+    }
+
+    .day__temp {
+        width: 30%;
+        font-size: 18px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 400px) {
+    .data__temp-big {
+        font-size: 86px;
+        padding-top: 15px;
+    }
+
+    .data__basic {
+        font-size: 16px;
+    }
+
+    .data__detail {
+        font-size: 14px;
+    }
+
+    .forecast__day {
+        width: 120px;
+        height: 45px;
+    }
+
+    .day__icon {
+        width: 40%;
+        height: 70%;
+    }
+
+    .day__temp {
+        font-size: 16px;
+    }
+}
+
 @media screen and (orientation: portrait) and (max-width: 600px) {
     .data__temp-big {
         font-size: 100px;
     }
 
-    .forecast__day {
+    .forecast__day,
+    .data__basic,
+    .data__detail {
         align-self: center;
     }
 
@@ -79,11 +153,8 @@
         font-size: 18px;
     }
 
-    .data__detail {
-        font-size: 16px;
-    }
-
+    .data__detail,
     .day__weekday {
-        font-size: 14px;
+        font-size: 16px;
     }
 }

@@ -100,4 +100,53 @@
 
 .main__date {
     padding-top: 40px;
+    font-size: 24px;
+}
+
+@media screen and (orientation: landscape) and (max-height: 670px) {
+    .form__search {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .main__date {
+        padding-top: 20px;
+        font-size: 22px;
+    }
+
+    .main__form::after {
+        width: 30px;
+        height: 10px;
+    }
+
+    .form__icon {
+        width: 20px;
+        height: 20px;
+        right: 15px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 400px) {
+    .form__search {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .main__date {
+        padding-top: 20px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .form__search {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .form__icon {
+        width: 20px;
+        height: 20px;
+        right: 15px;
+    }
 }
