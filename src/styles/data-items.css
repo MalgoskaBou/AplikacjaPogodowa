@@ -16,7 +16,7 @@
 
 .data__icon {
     grid-area: img;
-    width: 80%;
+    width: 90%;
     height: 80%;
     justify-self: center;
     background: url("/assets/02d.svg");
@@ -63,4 +63,27 @@
 .day__temp {
     align-self: left;
     font-size: 24px;
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .data__temp-big {
+        font-size: 100px;
+    }
+
+    .forecast__day {
+        align-self: center;
+    }
+
+    .data__basic,
+    .day__temp {
+        font-size: 18px;
+    }
+
+    .data__detail {
+        font-size: 16px;
+    }
+
+    .day__weekday {
+        font-size: 14px;
+    }
 }

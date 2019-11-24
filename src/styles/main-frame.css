@@ -23,6 +23,11 @@
 
 @media screen and (orientation: portrait) and (max-width: 600px) {
     .background-frame__main {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        box-shadow: none;
+        border: none;
         grid-template-rows: 1fr 3fr;
     }
 }
