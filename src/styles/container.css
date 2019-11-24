@@ -1,7 +1,7 @@
 .container {
     width: 100vw;
     height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr minmax(800px, 1200px) 1fr;
     grid-template-rows: minmax(20px, 1fr) minmax(650px, 850px) 1fr;
@@ -9,20 +9,11 @@
     align-items: stretch;
 }
 
-@media screen and (orientation: landscape) and (max-height: 670px) {
+@media screen and (orientation: landscape) and (max-width: 800px),
+screen and (orientation: landscape) and (max-height: 670px),
+screen and (orientation: portrait) and (max-width: 800px) {
     .container {
-        display: block;
-    }
-}
-
-@media screen and (orientation: landscape) and (max-width: 800px) {
-    .container {
-        display: block;
-    }
-}
-
-@media screen and (orientation: portrait) and (max-width: 800px) {
-    .container {
-        display: block;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
     }
 }

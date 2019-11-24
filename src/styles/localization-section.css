@@ -96,8 +96,6 @@
     line-height: 1;
     opacity: 0.6;
 }
-
-
 .main__date {
     padding-top: 40px;
     font-size: 24px;
@@ -106,11 +104,11 @@
 @media screen and (orientation: landscape) and (max-height: 670px) {
     .form__search {
         padding: 10px;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .main__date {
-        padding-top: 20px;
+        padding-top: 30px;
         font-size: 22px;
     }
 
@@ -126,15 +124,26 @@
     }
 }
 
-@media screen and (orientation: landscape) and (max-height: 400px) {
+@media screen and (orientation: landscape) and (max-height: 420px) {
     .form__search {
-        padding: 10px;
+        padding: 5px;
         font-size: 16px;
     }
 
     .main__date {
-        padding-top: 20px;
+        padding-top: 15px;
         font-size: 18px;
+    }
+
+    .main__form::after {
+        width: 30px;
+        height: 10px;
+    }
+
+    .form__icon {
+        width: 20px;
+        height: 20px;
+        right: 15px;
     }
 }
 

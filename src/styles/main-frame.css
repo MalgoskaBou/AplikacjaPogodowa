@@ -13,42 +13,48 @@
     align-items: stretch;
 }
 
+@media screen and (orientation: landscape) and (max-width: 800px) {
+    .background-frame__main {
+        grid-column: 2 / span 1;
+        grid-row: 2 / 4;
+    }
+}
+
 @media screen and (orientation: landscape) and (max-height: 670px) {
     .background-frame__main {
-        width: 100vw;
-        height: 100vh;
-        /* overflow: hidden; */
+        grid-column: 2 / span 1;
+        grid-row: 2 / 4;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .background-frame__main {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
         box-shadow: none;
         border-radius: 0;
         grid-template-rows: 1fr 3fr;
     }
 }
 
-@media screen and (orientation: landscape) and (max-height: 350px) {
-    .background-frame__main {
-        grid-template-rows: 1fr 4fr;
-    }
-}
-
 @media screen and (orientation: portrait) and (max-width: 800px) {
     .background-frame__main {
         grid-column: 2 / 3;
-        grid-row: 2 / 3;
+        grid-row: 2 / 4;
         grid-template-rows: minmax(200px, 250px) minmax(400px, 1fr);
     }
 }
 
 @media screen and (orientation: portrait) and (max-width: 600px) {
     .background-frame__main {
-        width: 100vw;
-        height: 100vh;
-        /* overflow: hidden; */
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
         box-shadow: none;
         border-radius: 0;
     }
 }
 
-@media screen and (orientation: portrait) and (max-height: 600px) {
+@media screen and (orientation: portrait) and (max-height: 650px) {
     .background-frame__main {
         grid-template-rows: 1fr 3fr;
     }
