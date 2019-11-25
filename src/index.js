@@ -1,3 +1,4 @@
+const get_location = require("./scripts/geolocation");
 import './styles/main.css';
 import {getWeatherByCity, getWeatherByCoordinates} from './scripts/meteoDataGet';
 
