@@ -1,27 +1,4 @@
-const key = "8fcaab843005c41b8887ccbdd9eb6ace";
-const url = "https://api.openweathermap.org/data/2.5/";
-
-const getWeatherByCity = async (city) => {
-    let urlCity = `${url}weather?q=${city}&units=metric&appid=${key}`;
-    try {
-        let rawWeatherData = await fetch(urlCity);
-        const finalWeather = mapToWeatherObj(rawWeatherData);
-        return finalWeather;
-    } catch(err) {
-        console.log(err);
-    }
-}
-
-const getWeatherByCoordinates = async (lat, lon) => {
-    let urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
-    try {
-        let rawWeatherData = await fetch(urlCity);
-        const finalWeather = mapToWeatherObj(rawWeatherData);
-        return finalWeather;
-    } catch(err) {
-        console.log(err);
-    }
-}
+import {getWeatherByCity, getWeatherByCoordinates} from 'meteoDataGet.js';
 
 const mapToWeatherObj = async (rawWeatherData) => {
     const weatherObj = await rawWeatherData.json();
