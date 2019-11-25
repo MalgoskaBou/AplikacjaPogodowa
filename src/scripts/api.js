@@ -50,3 +50,14 @@ const mapToWeatherObj = async (rawWeatherData) => {
 
     return weatherInfo;
 }
+
+// HOW TO USE
+/*
+getWeatherByCity("Wroclaw").then((response) => {
+    console.log(response);
+})
+
+getWeatherByCoordinates(51.1089776, 17.0326689).then((response) => {
+    console.log(response);
+})
+*/
