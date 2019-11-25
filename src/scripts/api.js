@@ -38,12 +38,12 @@ const mapToWeatherObj = async (rawWeatherData) => {
     const weatherInfo = {
         city: weatherObj.name,
         date: currentDate(),
-        temp: `${Math.round(weatherObj.main.temp)}°C`,
-        tempMin: `${Math.round(weatherObj.main.temp_min)}°C`,
-        tempMax: `${Math.round(weatherObj.main.temp_max)}°C`,
-        wind: weatherObj.wind.speed + " m/s",
-        pressure: weatherObj.main.pressure + " hPa",
-        humidity: weatherObj.main.humidity + "%",
+        temp: Math.round(weatherObj.main.temp),
+        tempMin: Math.round(weatherObj.main.temp_min),
+        tempMax: Math.round(weatherObj.main.temp_max),
+        wind: weatherObj.wind.speed,
+        pressure: weatherObj.main.pressure,
+        humidity: weatherObj.main.humidity,
         description: weatherObj.weather[0].description,
         icon: weatherObj.weather[0].icon
     }
