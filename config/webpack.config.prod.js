@@ -8,7 +8,7 @@ module.exports = {
     mode: 'production',
 
     entry: {
-        main: './src/index.js'
+        main: ['@babel/polyfill', './src/index.js']
     },
 
     output: {
