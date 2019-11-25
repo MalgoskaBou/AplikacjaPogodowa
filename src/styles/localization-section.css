@@ -1,5 +1,8 @@
 .main__localization {
     padding: 16px 20px 0 20px;
+    position: relative;
+    top:0;
+    left:0;
 }
 
 .main__form {
@@ -37,9 +40,16 @@
     transform: translateY(-50%);
     width: 30px;
     height: 30px;
+    border: none;
     background: url(/assets/loupe.svg) no-repeat;
     background-size: contain;
     background-position: center;
+    opacity: 0.5;
+    transition: .2s;
+}
+
+.form__icon:hover {
+    opacity: 1;
 }
 
 .form__suggestions {
@@ -96,9 +106,40 @@
     line-height: 1;
     opacity: 0.6;
 }
+
 .main__date {
+    display: inline-block;
     padding-top: 40px;
     font-size: 24px;
+}
+
+.localization__findme-btn {
+    position: absolute;
+    right: 20px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 24px;
+    line-height: 1;
+    background: transparent;
+    border: none;
+    opacity: 0.6;
+    transition: .2s;
+}
+
+.findme-btn__icon {
+display: inline-block;
+height: 30px;
+width: 30px;
+transform: translateY(20%);
+background: url(/assets/place.svg) no-repeat;
+background-size: contain;
+background-position: center;
+baseline: center;
+}
+
+.localization__findme-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 @media screen and (orientation: landscape) and (max-height: 670px) {
