@@ -12,6 +12,17 @@ const getWeatherByCity = async (city) => {
     }
 }
 
+const getWeatherByCoordinates = async (lat, lon) => {
+    let urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
+    try {
+        let rawWeatherData = await fetch(urlCity);
+        const finalWeather = mapToWeatherObj(rawWeatherData);
+        return finalWeather;
+    } catch(err) {
+        console.log(err);
+    }
+}
+
 const mapToWeatherObj = async (rawWeatherData) => {
     const weatherObj = await rawWeatherData.json();
 
