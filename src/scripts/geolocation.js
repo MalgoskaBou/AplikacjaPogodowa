@@ -12,7 +12,7 @@ function getLocation() {
     const geoLat = position.coords.latitude.toFixed(5);
     const geoLng = position.coords.longitude.toFixed(5);
     const geoAcc = position.coords.accuracy.toFixed(1);
-    return [geoLat, gepLng];
+    return [geoLat, geoLng, geoAcc];
   }
 
   function error(err) {

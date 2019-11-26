@@ -1,11 +1,17 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'production',
+
+    node: {
+        fs: 'empty'
+    },
 
     entry: {
         main: ['@babel/polyfill', './src/index.js']
@@ -51,6 +57,6 @@ module.exports = {
         new CopyPlugin([{
             from: 'src/assets',
             to: 'assets'
-        }]),
+        }])
     ]
 }
