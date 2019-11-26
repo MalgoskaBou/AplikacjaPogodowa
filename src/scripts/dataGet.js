@@ -1,9 +1,13 @@
-import key from 'apikey';
-export {getWeatherByCity, getWeatherByCoordinates};
+import key from './apikey.js';
+export {
+    getWeatherByCity,
+    getWeatherByCoordinates
+};
 
 const url = "https://api.openweathermap.org/data/2.5/";
 
-async function getWeatherByCity (city) {
+async function getWeatherByCity(city) {
+    console.log(key);
     const urlCity = `${url}weather?q=${city}&units=metric&appid=${key}`;
     try {
         const rawWeatherData = await fetch(urlCity);
@@ -14,7 +18,7 @@ async function getWeatherByCity (city) {
     }
 }
 
-async function getWeatherByCoordinates (lat, lon) {
+async function getWeatherByCoordinates(lat, lon) {
     let urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
     try {
         const rawWeatherData = await fetch(urlCity);
@@ -25,7 +29,7 @@ async function getWeatherByCoordinates (lat, lon) {
     }
 }
 
-async function mapToWeatherObj (rawWeatherData) {
+async function mapToWeatherObj(rawWeatherData) {
     const weatherObj = await rawWeatherData.json();
 
     const currentDate = () => {

@@ -1,8 +1,8 @@
-import getLocation from './scripts/geolocation';
+import getLocation from './scripts/geolocation.js';
 import {
     getWeatherByCity,
     getWeatherByCoordinates
-} from './scripts/dataGet';
+} from './scripts/dataGet.js';
 import './styles/main.css';
 
 async function weatherByCoordinates() {
