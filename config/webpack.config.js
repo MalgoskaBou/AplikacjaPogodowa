@@ -4,6 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
 
+    node: {
+        fs: 'empty'
+    },
+
     entry: {
         main: ['@babel/polyfill', './src/index.js']
     },
