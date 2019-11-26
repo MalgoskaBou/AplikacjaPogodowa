@@ -1,4 +1,6 @@
-const key = "8fcaab843005c41b8887ccbdd9eb6ace";
+import getKey from './apikey.js';
+
+const key = getKey();
 const url = "https://api.openweathermap.org/data/2.5/";
 
 const getWeatherByCity = async (city) => {
@@ -52,11 +54,11 @@ const mapToWeatherObj = async (rawWeatherData) => {
 }
 
 // HOW TO USE
-/*
+
 getWeatherByCity("Wroclaw").then((response) => {
     console.log(response);
 })
-
+/*
 getWeatherByCoordinates(51.1089776, 17.0326689).then((response) => {
     console.log(response);
 })
