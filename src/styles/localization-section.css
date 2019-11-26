@@ -41,6 +41,7 @@
     width: 30px;
     height: 30px;
     border: none;
+    outline: none;
     background: url(/assets/loupe.svg) no-repeat;
     background-size: contain;
     background-position: center;
@@ -135,7 +136,6 @@
     background: url(/assets/place.svg) no-repeat;
     background-size: contain;
     background-position: center;
-    baseline: center;
 }
 
 .localization__findme-btn:hover {

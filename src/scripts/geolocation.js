@@ -1,4 +1,6 @@
-const get_location = () => {
+export default getLocation;
+
+function getLocation() {
   navigator.geolocation;
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
@@ -7,9 +9,10 @@ const get_location = () => {
   }
 
   function success(position) {
-    var geoLat = position.coords.latitude.toFixed(5);
-    var geoLng = position.coords.longitude.toFixed(5);
-    var geoAcc = position.coords.accuracy.toFixed(1);
+    const geoLat = position.coords.latitude.toFixed(5);
+    const geoLng = position.coords.longitude.toFixed(5);
+    const geoAcc = position.coords.accuracy.toFixed(1);
+    return [geoLat, gepLng];
   }
 
   function error(err) {
@@ -24,5 +27,4 @@ const get_location = () => {
         alert("An unknown error occurred.");
     }
   }
-};
-module.exports = get_location;
+}

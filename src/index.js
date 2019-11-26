@@ -1,26 +1,26 @@
-const get_location = require("./scripts/geolocation");
+import getLocation from './scripts/geolocation';
+import {getWeatherByCity, getWeatherByCoordinates} from './scripts/dataGet';
 import './styles/main.css';
-import {getWeatherByCity, getWeatherByCoordinates} from './scripts/meteoDataGet';
 
-console.log('Hello from the main.js');
-
-function weatherByCoordinates(e) {
-    e.preventDefault();
-    console.log('submit event')
+function weatherByCoordinates() {
+    console.log('onload');
+    // getWeatherByCoordinates(lat, lon).then((response) => {
+    //     console.log(response);
 }
 
 function showCities() {
-    console.log('input event')
+    console.log('input event');
 }
 
 function weatherByCity(e) {
     e.preventDefault();
-    console.log('submit event')
+    const city = document.querySelector('.form__search').value;
+    console.log(city);
+    getWeatherByCity(city).then(response => console.log(response))
 }
 
+const searchForm = document.querySelector('.main__form');
 
-const searchForm = document.querySelector('.form__search');
-
-document.addEventListener('load', weatherByCoordinates);
+document.addEventListener('DOMContentLoaded', weatherByCoordinates);
 searchForm.addEventListener('input', showCities);
 searchForm.addEventListener('submit', weatherByCity);
