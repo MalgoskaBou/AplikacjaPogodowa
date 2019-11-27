@@ -3,20 +3,28 @@ import {
     getWeatherByCity,
     getWeatherByCoordinates
 } from './scripts/dataGet.js';
+import displayData from './scripts/dataDisplay.js';
+
 import './styles/main.css';
 
-async function weatherByCoordinates() {
-    // console.log('onload event');
-    // try {
-    const coords = await getLocation();
-    console.log(coords);
-    // } catch (err) {
-    //     console.log(err);
-    // }
 
-    // getWeatherByCoordinates(lat, lon).then((response) => {
-    //     console.log(response)
-    // })
+async function weatherByCoordinates() {
+    async function getCoords() {
+        const blob = await getLocation();
+        if (typeof blob === String) {
+            alert(blob);
+            return;
+        }
+        return [blob[0], blob[1]];
+    }
+
+    getCoords()
+        .then((coords) => getWeatherByCoordinates(...coords))
+        .then(dataObj => displayData(dataObj))
+        .catch(err => {
+            console.log(err);
+            alert('Upss.. Something went wrong!')
+        })
 }
 
 function showCities() {
