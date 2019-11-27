@@ -8,7 +8,7 @@ import displayData from './scripts/dataDisplay.js';
 import './styles/main.css';
 
 
-async function weatherByCoordinates() {
+function weatherByCoordinates() {
     async function getCoords() {
         const blob = await getLocation();
         if (typeof blob === String) {
