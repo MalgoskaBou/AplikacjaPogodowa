@@ -6,13 +6,17 @@ import {
 import './styles/main.css';
 
 async function weatherByCoordinates() {
-    console.log('onload event');
-    const lat = await getLocation()[0];
-    const lon = await getLocation()[1];
-    console.log(lat, lon);
-    getWeatherByCoordinates(lat, lon).then((response) => {
-        console.log(response)
-    })
+    // console.log('onload event');
+    // try {
+    const coords = await getLocation();
+    console.log(coords);
+    // } catch (err) {
+    //     console.log(err);
+    // }
+
+    // getWeatherByCoordinates(lat, lon).then((response) => {
+    //     console.log(response)
+    // })
 }
 
 function showCities() {
