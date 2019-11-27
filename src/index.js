@@ -29,7 +29,7 @@ function weatherByCity(e) {
     console.log(city);
     getWeatherByCity(city).then(response => {
         console.log(response)
-    });
+    }).catch(err => console.log(err));
 }
 
 const searchForm = document.querySelector('.main__form');
