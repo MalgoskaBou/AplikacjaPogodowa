@@ -15,15 +15,13 @@ async function weatherByCoordinates() {
         try {
             const blob = await getLocation();
             console.log(blob);
-            if (typeof blob === String) {
+            if (typeof blob !== Array) {
                 console.log(blob);
                 alert(blob);
             } else {
                 console.log("po else:");
-                console.log(blob); //tu jeszcze obiekt ze współrzędnymi
-                console.log(blob.geoLat + " | " + blob.geoLng); //tu już undefined
-                const lat = blob.geoLat;
-                const long = blob.geoLng;
+                console.log(blob); //tu jeszcze tablica ze współrzędnymi
+                console.log(blob[0] + " | " + blob[1]); //tu już undefined
             }
         } catch {
             (err) => console.log(err)
@@ -46,7 +44,11 @@ async function weatherByCoordinates() {
     console.log('onload event');
     try {
         const coords = await getLocation();
-        console.log(coords);
+        console.log(coords); // zwraca tablicę ze współrzędnymi
+        console.log(coords[0]); // zwraca undefined
+        console.log(Array.isArray(coords)); // true
+        console.log(coords.length); // 0
+        console.log(coords); // zwraca tablicę ze współrzędnymi
     } catch (err) {
         console.log(err);
     }

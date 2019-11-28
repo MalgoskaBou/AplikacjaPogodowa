@@ -1,6 +1,6 @@
 export default getLocation;
 
-const geoData = {};
+const geoData = [];
 
 const options = {
   // enableHighAccuracy: true,
@@ -9,9 +9,9 @@ const options = {
 };
 
 function success(position) {
-  geoData.geoLat = position.coords.latitude.toFixed(5);
-  geoData.geoLng = position.coords.longitude.toFixed(5);
-  geoData.geoAcc = position.coords.accuracy.toFixed(1);
+  geoData[0] = position.coords.latitude.toFixed(5);
+  geoData[1] = position.coords.longitude.toFixed(5);
+  geoData[2] = position.coords.accuracy.toFixed(1);
 }
 
 function error(err) {
