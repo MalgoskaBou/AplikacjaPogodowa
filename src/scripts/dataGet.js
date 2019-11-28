@@ -29,10 +29,10 @@ async function mapToWeatherObj(rawWeatherData) {
   const weatherObj = await rawWeatherData.json();
 
   const currentDate = () => {
-    const a = new Date(weatherObj.dt * 1000);
-    const year = a.getFullYear();
-    const month = a.getMonth() + 1;
-    const day = a.getDate();
+    const date = new Date(weatherObj.dt * 1000);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
     const time = day + "-" + month + "-" + year;
     return time;
   };

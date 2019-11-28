@@ -1,19 +1,13 @@
 import { getWeatherByCoordinates } from "./dataGet";
 import updateData from "./meteoDataDisplay";
 
-const geoData = [];
-
 const options = {
-  // enableHighAccuracy: true,
-  // maximumAge: 0,
   timeout: 5000
 };
 
 async function success(position) {
-  geoData[0] = position.coords.latitude.toFixed(5);
-  geoData[1] = position.coords.longitude.toFixed(5);
-  geoData[2] = position.coords.accuracy.toFixed(1);
-  const weatherObj = await getWeatherByCoordinates(geoData[0], geoData[1]);
+  const { latitude, longitude } = position.coords;
+  const weatherObj = await getWeatherByCoordinates(latitude, longitude);
   updateData(weatherObj);
 }
 
