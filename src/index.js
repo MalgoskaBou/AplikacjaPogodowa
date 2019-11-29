@@ -23,7 +23,7 @@ async function weatherByCity(e) {
   getWeatherByCity(city)
     .then(dataObj => updateCurrentData(dataObj))
     .catch(err => console.log(err));
-  document.querySelector(".form__search").activeElement = false; // NOT WORKING
+  document.querySelector(".form__search").blur();
 }
 
 const searchForm = document.querySelector(".main__form");
