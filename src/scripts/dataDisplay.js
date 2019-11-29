@@ -1,6 +1,6 @@
 function updateCurrentData(object) {
   document.querySelector(".form__search").value = `${object.city}`;
-  document.querySelector('.form__search').activeElement = false;
+  document.querySelector('.form__search').blur();
   document.querySelector(".main__date").innerHTML = object.date;
   document.getElementById("bigTemp").innerHTML = object.temp;
   document.getElementById("tempMin").innerHTML = object.tempMin;
