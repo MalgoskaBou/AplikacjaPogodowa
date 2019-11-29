@@ -1,10 +1,7 @@
-import displayWeatherByCoordinates from "./scripts/geolocation";
-import {
-  getWeatherByCity
-} from "./scripts/dataGet";
-import {
-  updateCurrentData
-} from "./scripts/dataDisplay";
+import displayWeatherByCoordinates from "./scripts/geolocation.js";
+import {getWeatherByCity} from "./scripts/dataGet.js";
+import {getForecastByCity} from "./scripts/getForecast.js";
+import {updateCurrentData, updateForecastData} from "./scripts/dataDisplay.js";
 
 import "./styles/main.css";
 
@@ -19,10 +16,15 @@ function showCities() {
 async function weatherByCity(e) {
   e.preventDefault();
   const city = document.querySelector(".form__search").value;
-  console.log(city);
+
   getWeatherByCity(city)
     .then(dataObj => updateCurrentData(dataObj))
     .catch(err => console.log(err));
+
+    getForecastByCity(city)
+    .then(dataObj => updateForecastData(dataObj))
+    .catch(err => console.log(err));
+  
   document.querySelector(".form__search").blur();
 }
 

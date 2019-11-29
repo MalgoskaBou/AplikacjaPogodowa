@@ -3,6 +3,7 @@ import getKey from "./apikey.js";
 const key = getKey();
 const url = "https://api.openweathermap.org/data/2.5/";
 
+
 async function getWeatherByCity(city) {
   const urlCity = `${url}weather?q=${city}&units=metric&appid=${key}`;
   try {
@@ -13,6 +14,7 @@ async function getWeatherByCity(city) {
     console.log(err);
   }
 }
+
 
 async function getWeatherByCoordinates(lat, lon) {
   let urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
@@ -25,17 +27,19 @@ async function getWeatherByCoordinates(lat, lon) {
   }
 }
 
+
+const currentDate = () => {
+  const a = new Date(Date.now());
+  const year = a.getFullYear();
+  const month = a.getMonth() + 1;
+  const day = a.getDate();
+  const time = year + '-' + month + '-' + day;
+  return time;
+};
+
+
 async function mapToWeatherObj(rawWeatherData) {
   const weatherObj = await rawWeatherData.json();
-
-  const currentDate = () => {
-    const date = new Date(weatherObj.dt * 1000);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const time = day + "-" + month + "-" + year;
-    return time;
-  };
 
   const weatherInfo = {
     city: weatherObj.name,
@@ -54,7 +58,8 @@ async function mapToWeatherObj(rawWeatherData) {
   return weatherInfo;
 }
 
-export { getWeatherByCity, getWeatherByCoordinates };
+
+export { getWeatherByCity, getWeatherByCoordinates, currentDate };
 
 // HOW TO USE
 /*

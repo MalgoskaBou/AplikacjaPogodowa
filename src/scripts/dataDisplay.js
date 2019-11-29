@@ -12,9 +12,12 @@ function updateCurrentData(object) {
   document.getElementById("icon").style.backgroundImage = `url(assets/${object.icon}.svg)`;
 }
 
-export {
-  updateCurrentData
-};
+function updateForecastData(object) {
+  console.log(object)
+}
+
+
+export {updateCurrentData, updateForecastData};
 
 
 // FORECAST
