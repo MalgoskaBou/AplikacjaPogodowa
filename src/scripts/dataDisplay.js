@@ -12,23 +12,12 @@ function updateCurrentData(object) {
   document.getElementById("icon").style.backgroundImage = `url(assets/${object.icon}.svg)`;
 }
 
-export {
-  updateCurrentData
-};
+function updateForecastData(object) {
+  object.forEach((day, id) => {
+    document.getElementById(`day${id+1}`).innerHTML = object[id].weekday;
+    document.getElementById(`temp${id+1}`).innerHTML = object[id].temp;
+    document.getElementById(`icon${id+1}`).style.backgroundImage = `url(assets/${object[id].icon}.svg)`;
+  })
+}
 
-
-// FORECAST
-// document.getElementById("day1").innerHTML = object.day1;
-// document.getElementById("day2").innerHTML = object.day2;
-// document.getElementById("day3").innerHTML = object.day3;
-// document.getElementById("day4").innerHTML = object.day4;
-// document.getElementById("temp1").innerHTML = object.temp1;
-// document.getElementById("temp2").innerHTML = object.temp2;
-// document.getElementById("temp3").innerHTML = object.temp3;
-// document.getElementById("temp4").innerHTML = object.temp4;
-// document.getElementById("icon1").style.background = object.icon + ".svg";
-
-//TODO obsługa ikon + wyświetlanie miasta
-//document.getElementById('icon2').src = object.;
-//document.getElementById('icon3').src = object.;
-//document.getElementById('icon4').src = object.;
+export { updateCurrentData, updateForecastData };
