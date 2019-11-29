@@ -53,7 +53,9 @@ const mapToForecastObj = async (rawForecastData) => {
             });
         }
     }
-    forecast.pop();
+    if (forecast.length > 4) {
+        forecast.pop();
+    }
     return forecast;
 }
 
