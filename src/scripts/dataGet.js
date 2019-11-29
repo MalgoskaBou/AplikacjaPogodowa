@@ -7,11 +7,16 @@ const url = "https://api.openweathermap.org/data/2.5/";
 async function getWeatherByCity(city) {
   const urlCity = `${url}weather?q=${city}&units=metric&appid=${key}`;
   try {
-    const rawWeatherData = await fetch(urlCity);
+    const rawWeatherData = await fetch(urlCity).then(response => {
+      if (response.status != 200) {
+        throw response.status;
+      }
+      return response;
+    });
     const finalWeather = mapToWeatherObj(rawWeatherData);
     return finalWeather;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 }
 
@@ -19,11 +24,16 @@ async function getWeatherByCity(city) {
 async function getWeatherByCoordinates(lat, lon) {
   let urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
   try {
-    const rawWeatherData = await fetch(urlCity);
+    const rawWeatherData = await fetch(urlCity).then(response => {
+      if (response.status != 200) {
+        throw response.status;
+      }
+      return response;
+    });
     const finalWeather = await mapToWeatherObj(rawWeatherData);
     return finalWeather;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 }
 

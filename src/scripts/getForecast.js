@@ -8,7 +8,12 @@ const url = "https://api.openweathermap.org/data/2.5/";
 async function getForecastByCity(city) {
     const urlCity = `${url}forecast?q=${city}&units=metric&appid=${key}`;
     try {
-        const rawForecastData = await fetch(urlCity);
+        const rawForecastData = await fetch(urlCity).then(response => {
+            if (response.status != 200) {
+              throw response.status;
+            }
+            return response;
+        });
         const finalForecast = mapToForecastObj(rawForecastData);
         return finalForecast;
     } catch (err) {
@@ -20,7 +25,12 @@ async function getForecastByCity(city) {
 async function getForecastByCoordinates(lat, lon) {
     let urlCity = `${url}forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
     try {
-        let rawForecastData = await fetch(urlCity);
+        const rawForecastData = await fetch(urlCity).then(response => {
+            if (response.status != 200) {
+              throw response.status;
+            }
+            return response;
+        });
         const finalForecast = mapToForecastObj(rawForecastData);
         console.log(finalForecast);
         return finalForecast;
