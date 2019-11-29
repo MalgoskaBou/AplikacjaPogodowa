@@ -1,7 +1,9 @@
+const moment = require('moment');
+
 function updateCurrentData(object) {
   document.querySelector(".form__search").value = `${object.city}`;
   document.querySelector('.form__search').blur();
-  document.querySelector(".main__date").innerHTML = object.date;
+  document.querySelector(".main__date").innerHTML = moment().format('MMMM Do YYYY, h:mm a');
   document.getElementById("bigTemp").innerHTML = object.temp;
   document.getElementById("tempMin").innerHTML = object.tempMin;
   document.getElementById("tempMax").innerHTML = object.tempMax;
@@ -19,5 +21,6 @@ function updateForecastData(object) {
     document.getElementById(`icon${id+1}`).style.backgroundImage = `url(assets/${object[id].icon}.svg)`;
   })
 }
+
 
 export { updateCurrentData, updateForecastData };
