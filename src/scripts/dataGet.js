@@ -63,20 +63,8 @@ async function mapToWeatherObj(rawWeatherData) {
     description: weatherObj.weather[0].description,
     icon: weatherObj.weather[0].icon
   };
-  console.log(weatherInfo);
-  console.log(weatherInfo.date)
   return weatherInfo;
 }
 
 
 export { getWeatherByCity, getWeatherByCoordinates, currentDate };
-
-// HOW TO USE
-/*
-getWeatherByCity("Wroclaw").then((response) => {
-    console.log(response);
-})
-getWeatherByCoordinates(51.1089776, 17.0326689).then((response) => {
-    console.log(response);
-})
-*/
