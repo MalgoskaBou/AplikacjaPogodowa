@@ -43,7 +43,7 @@ async function mapToWeatherObj(rawWeatherData) {
     temp: Math.round(weatherObj.main.temp),
     tempMin: Math.round(weatherObj.main.temp_min),
     tempMax: Math.round(weatherObj.main.temp_max),
-    wind: weatherObj.wind.speed,
+    wind: Math.round(weatherObj.wind.speed * 3.6),
     pressure: weatherObj.main.pressure,
     humidity: weatherObj.main.humidity,
     description: weatherObj.weather[0].description,
