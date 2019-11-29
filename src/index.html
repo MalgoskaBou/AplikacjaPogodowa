@@ -32,42 +32,44 @@
                             </li>
                         </ul>
                     </form>
-                    <p class="main__date"><span>Day</span> --- <span>-- Month</span></p>
-                    <button class="localization__findme-btn"><div class="findme-btn__icon"></div>Find me</button>
+                    <p class="main__date">Day --- Month</p>
+                    <button class="localization__findme-btn">
+                        <div class="findme-btn__icon"></div>Find me
+                    </button>
                 </div>
                 <div class="main__data">
-                    <p class="data__temp-big"><span>--</span>°</p>
+                    <p class="data__temp-big"><span id="bigTemp">--</span>°</p>
                     <div class="data__basic">
-                        <p class="data__temp-small"><span>--</span>° / <span>--</span>°</p>
-                        <p class="data__conditions">What the weather?</p>
+                        <p class="data__temp-small"><span id="tempMax">--</span>° / <span id="tempMin">--</span>°</p>
+                        <p class="data__conditions" id="condition">What's the weather?</p>
 
                     </div>
                     <div class="data__detail">
-                        <p class="data__wind">Wind: <span>--</span> km/h</p>
-                        <p class="data__pressure">Pressure: <span>----</span> hPa</p>
-                        <p class="data__humidity">Humidity: <span>--</span>%</p>
+                        <p class="data__wind">Wind: <span id="wind">--</span> km/h</p>
+                        <p class="data__pressure">Pressure: <span id="pressure">----</span> hPa</p>
+                        <p class="data__humidity">Humidity: <span id="humidity">--</span>%</p>
                     </div>
-                    <div class="data__icon" data-conditions="clear"></div>
+                    <div class="data__icon" id="icon"></div>
                     <div class="data__forecast">
                         <div class="forecast__day">
-                            <p class="day__weekday">---</p>
-                            <div class="day__icon"></div>
-                            <p class="day__temp"><span>---</span>°</p>
+                            <p class="day__weekday" id="day1">---</p>
+                            <div class="day__icon" id="icon1"></div>
+                            <p class="day__temp"><span id="temp1">--</span>°</p>
                         </div>
                         <div class="forecast__day">
-                            <p class="day__weekday">---</p>
-                            <div class="day__icon"></div>
-                            <p class="day__temp"><span>---</span>°</p>
+                            <p class="day__weekday" id="day2">---</p>
+                            <div class="day__icon" id="icon2"></div>
+                            <p class="day__temp"><span id="temp2">--</span>°</p>
                         </div>
                         <div class="forecast__day">
-                            <p class="day__weekday">---</p>
-                            <div class="day__icon"></div>
-                            <p class="day__temp"><span>---</span>°</p>
+                            <p class="day__weekday" id="day3">---</p>
+                            <div class="day__icon" id="icon3"></div>
+                            <p class="day__temp"><span id="temp3">--</span>°</p>
                         </div>
                         <div class="forecast__day">
-                            <p class="day__weekday">---</p>
-                            <div class="day__icon"></div>
-                            <p class="day__temp"><span>---</span>°</p>
+                            <p class="day__weekday" id="day4">---</p>
+                            <div class="day__icon" id="icon4"></div>
+                            <p class="day__temp"><span id="temp4">--</span>°</p>
                         </div>
                     </div>
                 </div>

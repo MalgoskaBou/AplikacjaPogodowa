@@ -19,7 +19,7 @@
     width: 90%;
     height: 80%;
     justify-self: center;
-    background: url("/assets/02d.svg");
+    background-image: url("/assets/02d.svg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
@@ -57,7 +57,7 @@
     width: 70%;
     height: 40%;
     align-self: center;
-    background: url("/assets/50d.svg");
+    background-image: url("/assets/50d.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
