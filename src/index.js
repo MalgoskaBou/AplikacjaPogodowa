@@ -53,8 +53,9 @@ async function weatherByCity(e) {
 
 
 const moment = require('moment');
+const currentTime = document.querySelector(".main__date");
 (function timedUpdate () {
-  document.querySelector(".main__date").innerHTML = moment().format('MMMM Do YYYY, h:mm a');
+  currentTime.innerHTML = moment().format('Do MMMM YYYY, h:mm a');
   setTimeout(timedUpdate, 60000);
 })()
 

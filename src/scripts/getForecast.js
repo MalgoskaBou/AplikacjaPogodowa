@@ -1,5 +1,5 @@
 import getKey from './apikey';
-import { currentDate } from './dataGet';
+// import { currentDate } from './dataGet';
 
 const key = getKey();
 const url = "https://api.openweathermap.org/data/2.5/";
@@ -64,6 +64,15 @@ async function mapToForecastObj(rawForecastData) {
     }
     return forecast;
 }
+
+function currentDate () {
+  const a = new Date(Date.now());
+  const year = a.getFullYear();
+  const month = a.getMonth() + 1;
+  const day = a.getDate();
+  const time = year + '-' + month + '-' + day;
+  return time;
+};
 
 
 export { getForecastByCity, getForecastByCoordinates }
