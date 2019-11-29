@@ -124,6 +124,7 @@
     line-height: 1;
     background: transparent;
     border: none;
+    outline: none;
     opacity: 0.6;
     transition: .2s;
 }

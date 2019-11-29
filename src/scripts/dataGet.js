@@ -49,10 +49,15 @@ async function mapToWeatherObj(rawWeatherData) {
     description: weatherObj.weather[0].description,
     icon: weatherObj.weather[0].icon
   };
+  console.log(weatherInfo);
+  console.log(weatherInfo.date)
   return weatherInfo;
 }
 
-export { getWeatherByCity, getWeatherByCoordinates };
+export {
+  getWeatherByCity,
+  getWeatherByCoordinates
+};
 
 // HOW TO USE
 /*
