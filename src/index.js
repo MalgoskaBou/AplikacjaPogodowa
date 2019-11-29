@@ -2,7 +2,6 @@ import displayWeatherByCoordinates from "./scripts/geolocation";
 import { getWeatherByCity } from "./scripts/dataGet";
 import { getForecastByCity } from "./scripts/getForecast";
 import { updateCurrentData, updateForecastData } from "./scripts/dataDisplay";
-
 import "./styles/main.css";
 
 
@@ -51,6 +50,14 @@ async function weatherByCity(e) {
 
   document.querySelector(".form__search").blur();
 }
+
+
+const moment = require('moment');
+const currentTime = document.querySelector(".main__date");
+(function timedUpdate () {
+  currentTime.innerHTML = moment().format('Do MMMM YYYY, h:mm a');
+  setTimeout(timedUpdate, 60000);
+})()
 
 
 const searchForm = document.querySelector(".main__form");

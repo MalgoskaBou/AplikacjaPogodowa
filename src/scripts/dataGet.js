@@ -38,14 +38,14 @@ async function getWeatherByCoordinates(lat, lon) {
 }
 
 
-const currentDate = () => {
-  const a = new Date(Date.now());
-  const year = a.getFullYear();
-  const month = a.getMonth() + 1;
-  const day = a.getDate();
-  const time = year + '-' + month + '-' + day;
-  return time;
-};
+// const currentDate = () => {
+//   const a = new Date(Date.now());
+//   const year = a.getFullYear();
+//   const month = a.getMonth() + 1;
+//   const day = a.getDate();
+//   const time = year + '-' + month + '-' + day;
+//   return time;
+// };
 
 
 async function mapToWeatherObj(rawWeatherData) {
@@ -53,7 +53,7 @@ async function mapToWeatherObj(rawWeatherData) {
 
   const weatherInfo = {
     city: weatherObj.name,
-    date: currentDate(),
+    // date: currentDate(),
     temp: Math.round(weatherObj.main.temp),
     tempMin: Math.round(weatherObj.main.temp_min),
     tempMax: Math.round(weatherObj.main.temp_max),
@@ -63,20 +63,8 @@ async function mapToWeatherObj(rawWeatherData) {
     description: weatherObj.weather[0].description,
     icon: weatherObj.weather[0].icon
   };
-  console.log(weatherInfo);
-  console.log(weatherInfo.date)
   return weatherInfo;
 }
 
 
-export { getWeatherByCity, getWeatherByCoordinates, currentDate };
-
-// HOW TO USE
-/*
-getWeatherByCity("Wroclaw").then((response) => {
-    console.log(response);
-})
-getWeatherByCoordinates(51.1089776, 17.0326689).then((response) => {
-    console.log(response);
-})
-*/
+export { getWeatherByCity, getWeatherByCoordinates };
