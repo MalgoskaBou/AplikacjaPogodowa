@@ -1,5 +1,6 @@
 import { getWeatherByCoordinates } from "./dataGet";
-import { updateCurrentData } from "./dataDisplay";
+import { getForecastByCoordinates } from "./getForecast";
+import { updateCurrentData, updateForecastData } from "./dataDisplay";
 
 const options = {
   timeout: 5000
@@ -7,8 +8,12 @@ const options = {
 
 async function success(position) {
   const { latitude, longitude } = position.coords;
+  //current weather data:
   const weatherObj = await getWeatherByCoordinates(latitude, longitude);
   updateCurrentData(weatherObj);
+  //forecast weather data:
+  const forecastObj = await getForecastByCoordinates(latitude, longitude);
+  updateForecastData(forecastObj);
 }
 
 function error(err) {
@@ -31,7 +36,6 @@ function displayCurrentData() {
     alert("Sorry, geolocation is not supported in your browser...");
     return;
   }
-
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
