@@ -1,5 +1,5 @@
-import getKey from './apikey.js';
-import { currentDate } from './dataGet.js';
+import getKey from './apikey';
+import { currentDate } from './dataGet';
 
 const key = getKey();
 const url = "https://api.openweathermap.org/data/2.5/";
@@ -22,6 +22,7 @@ async function getForecastByCoordinates(lat, lon) {
     try {
         let rawForecastData = await fetch(urlCity);
         const finalForecast = mapToForecastObj(rawForecastData);
+        console.log(finalForecast);
         return finalForecast;
     } catch (err) {
         console.log(err);
