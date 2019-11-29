@@ -17,7 +17,7 @@ async function getForecastByCity(city) {
         const finalForecast = mapToForecastObj(rawForecastData);
         return finalForecast;
     } catch (err) {
-        console.log(err);
+        throw err;
     }
 }
 
@@ -32,7 +32,6 @@ async function getForecastByCoordinates(lat, lon) {
             return response;
         });
         const finalForecast = mapToForecastObj(rawForecastData);
-        console.log(finalForecast);
         return finalForecast;
     } catch (err) {
         console.log(err);
@@ -68,15 +67,3 @@ async function mapToForecastObj(rawForecastData) {
 
 
 export { getForecastByCity, getForecastByCoordinates }
-
-
-
-// HOW TO USE
-
-// getForecastByCity("Wroclaw").then((response) => {
-//     console.log(response);
-// })
-
-// getForecastByCoordinates(51.1089776, 17.0326689).then((response) => {
-//     console.log(response);
-// })
