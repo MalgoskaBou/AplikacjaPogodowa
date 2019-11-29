@@ -54,10 +54,7 @@ async function mapToWeatherObj(rawWeatherData) {
   return weatherInfo;
 }
 
-export {
-  getWeatherByCity,
-  getWeatherByCoordinates
-};
+export { getWeatherByCity, getWeatherByCoordinates };
 
 // HOW TO USE
 /*
