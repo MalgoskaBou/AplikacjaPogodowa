@@ -1,5 +1,6 @@
 function renderCitiesList() {
     const citiesList = document.querySelector('.form__suggestions');
+    citiesList.innerHTML = "";
     const cities = getData();
 
     cities.forEach(city => {
