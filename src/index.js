@@ -2,25 +2,29 @@ import displayWeatherByCoordinates from "./scripts/geolocation";
 import { getWeatherByCity } from "./scripts/dataGet";
 import { getForecastByCity } from "./scripts/getForecast";
 import { updateCurrentData, updateForecastData } from "./scripts/dataDisplay";
+import { getData,  renderCitiesList, saveData } from "./scripts/localStorage";
 import "./styles/main.css";
+
+const isOnline = require("is-online");
 
 
 async function weatherByCoordinates() {
   await displayWeatherByCoordinates();
+  saveData();
+  renderCitiesList();
 }
-
-
-function showCities() {
-  console.log("input event");
-}
-
 
 async function weatherByCity(e) {
   e.preventDefault();
   const city = document.querySelector(".form__search").value;
 
   getWeatherByCity(city)
-    .then(dataObj => updateCurrentData(dataObj))
+    .then(dataObj => {
+      updateCurrentData(dataObj);
+      saveData();
+      renderCitiesList();
+      document.querySelector(".form__search").blur();
+    })
     .catch(err => {
       document.querySelector(".form__search").blur();
       if (err !== 200) {
@@ -48,8 +52,6 @@ async function weatherByCity(e) {
         }
       }
     });
-
-  // document.querySelector(".form__search").blur();
 }
 
 
@@ -57,14 +59,29 @@ const moment = require('moment');
 const currentTime = document.querySelector(".main__date");
 (function timedUpdate () {
   currentTime.innerHTML = moment().format('Do MMMM YYYY, h:mm a');
-  setTimeout(timedUpdate, 60000);
+  setTimeout(timedUpdate, 30000);
 })()
+
+
+async function startApp() {
+  if (!await isOnline()) {
+    alert("No internet connection.")
+  }
+
+  const cities = getData();
+  internetConnection;
+  if (cities.length === 0) {
+    await weatherByCoordinates();
+  } else {
+  renderCitiesList(cities);
+  document.querySelector(".form__search").value = cities[0];
+  }
+}
 
 
 const searchForm = document.querySelector(".main__form");
 const geolocationButton = document.querySelector(".localization__findme-btn");
 
-document.addEventListener("DOMContentLoaded", weatherByCoordinates);
+document.addEventListener("DOMContentLoaded", startApp);
 geolocationButton.addEventListener("click", weatherByCoordinates);
-searchForm.addEventListener("input", showCities);
 searchForm.addEventListener("submit", weatherByCity);
