@@ -3,6 +3,7 @@ import { getWeatherByCity } from "./scripts/dataGet";
 import { getForecastByCity } from "./scripts/getForecast";
 import { updateCurrentData, updateForecastData } from "./scripts/dataDisplay";
 import { getData,  renderCitiesList, saveData } from "./scripts/localStorage";
+import { internetConnection } from "./scripts/errorHandle";
 import "./styles/main.css";
 
 
@@ -63,7 +64,7 @@ const currentTime = document.querySelector(".main__date");
 
 async function startApp() {
   const cities = getData();
-
+  internetConnection;
   if (cities.length === 0) {
     await weatherByCoordinates();
   } else {
