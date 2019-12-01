@@ -69,7 +69,6 @@ async function startApp() {
   }
 
   const cities = getData();
-  internetConnection;
   if (cities.length === 0) {
     await weatherByCoordinates();
   } else {
