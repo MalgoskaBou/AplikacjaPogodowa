@@ -1,0 +1,93 @@
+.background-frame {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-columns: minmax(50px, 225px) minmax(600px, 750px) minmax(50px, 225px);
+    grid-template-rows: minmax(200px, 250px) minmax(400px, 500px) minmax(50px, 1fr);
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.background-frame__color {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+    background: var(--orange);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14);
+    border-radius: 4px;
+    position: relative;
+    z-index: -10;
+}
+
+@media screen and (orientation: landscape) and (max-width: 800px),
+screen and (orientation: landscape) and (max-height: 670px),
+screen and (orientation: portrait) and (max-width: 800px) {
+    .background-frame {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        overflow: hidden;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 800px) {
+    .background-frame {
+        grid-template-columns: minmax(20px, 1fr) minmax(600px, 750px) minmax(20px, 1fr);
+        grid-template-rows: minmax(20px, 1fr) minmax(200px, 250px) minmax(400px, 500px) minmax(50px, 1fr);
+    }
+
+    .background-frame__color {
+        grid-column: 1 / 4;
+        grid-row: 3 / 5;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 670px) {
+    .background-frame {
+        grid-template-columns: 1fr minmax(600px, 750px) 1fr;
+        grid-template-rows: 
+        minmax(20px, 1fr) 
+        minmax(190px, 200px) 
+        minmax(370px, 400px) 
+        minmax(20px, 1fr);
+    }
+
+    .background-frame__color {
+        display: none;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .background-frame {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 800px) {
+    .background-frame {
+        grid-template-columns: 1fr minmax(600px, 750px) 1fr;
+        grid-template-rows: 
+        minmax(50px, 1fr) 
+        minmax(200px, 250px) 
+        minmax(400px, 500px) 
+        minmax(100px, 1fr);
+    }
+
+    .background-frame__color {
+        grid-row: 3 / 5;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .background-frame {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .background-frame__color {
+        display: none;
+    }
+}

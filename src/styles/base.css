@@ -1,0 +1,9 @@
+p,
+li,
+ul,
+input,
+button {
+    font-family: var(--main-font);
+    line-height: 1.2;
+    color: var(--dark);
+}

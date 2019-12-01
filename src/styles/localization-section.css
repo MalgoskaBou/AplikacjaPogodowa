@@ -1,0 +1,204 @@
+.main__localization {
+    padding: 16px 20px 0 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.main__form {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 2px solid var(--dark);
+    border-radius: 4px 4px 0px 0px;
+}
+
+.main__form::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 50px;
+    height: 20px;
+    background: var(--dark);
+}
+
+.form__search {
+    width: 90%;
+    padding: 20px;
+    font-size: 24px;
+    outline: 0;
+    border: none;
+}
+
+.form__icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: url(/assets/loupe.svg) no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.5;
+    transition: .2s;
+}
+
+.form__icon:hover {
+    opacity: 1;
+}
+
+.form__suggestions {
+    position: absolute;
+    z-index: 2;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.85);
+    list-style: none;
+    display: none;
+}
+
+.main__form:focus-within .form__suggestions {
+    display: block;
+}
+
+.form__list-item {
+    padding: 20px 0;
+    font-size: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+
+.form__list-item:hover {
+    padding: 30px 0;
+    background: #fff;
+}
+
+.form__city,
+.form__country {
+    display: inline-block;
+}
+
+.form__city {
+    min-width: 200px;
+}
+
+.form__country {
+    opacity: 0.5;
+}
+
+.user-city {
+    position: relative;
+}
+
+.user-city::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    content: "Your location";
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.main__date {
+    display: inline-block;
+    padding-top: 40px;
+    font-size: 24px;
+}
+
+.localization__findme-btn {
+    position: absolute;
+    right: 20px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 24px;
+    line-height: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    opacity: 0.6;
+    transition: .2s;
+}
+
+.findme-btn__icon {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    transform: translateY(20%);
+    background: url(/assets/place.svg) no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.localization__findme-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media screen and (orientation: landscape) and (max-height: 670px) {
+    .form__search {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .main__date {
+        padding-top: 30px;
+        font-size: 22px;
+    }
+
+    .main__form::after {
+        width: 30px;
+        height: 10px;
+    }
+
+    .form__icon {
+        width: 20px;
+        height: 20px;
+        right: 15px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 420px) {
+    .form__search {
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    .main__date {
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    .main__form::after {
+        width: 30px;
+        height: 10px;
+    }
+
+    .form__icon {
+        width: 20px;
+        height: 20px;
+        right: 15px;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .form__search {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .form__icon {
+        width: 20px;
+        height: 20px;
+        right: 15px;
+    }
+}
