@@ -6,6 +6,8 @@ import { getData,  renderCitiesList, saveData } from "./scripts/localStorage";
 import { internetConnection } from "./scripts/errorHandle";
 import "./styles/main.css";
 
+const isOnline = require("is-online");
+
 
 async function weatherByCoordinates() {
   await displayWeatherByCoordinates();
@@ -63,6 +65,10 @@ const currentTime = document.querySelector(".main__date");
 
 
 async function startApp() {
+  if (!await isOnline()) {
+    alert("No internet connection.")
+  }
+
   const cities = getData();
   internetConnection;
   if (cities.length === 0) {
