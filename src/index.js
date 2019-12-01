@@ -3,7 +3,6 @@ import { getWeatherByCity } from "./scripts/dataGet";
 import { getForecastByCity } from "./scripts/getForecast";
 import { updateCurrentData, updateForecastData } from "./scripts/dataDisplay";
 import { getData,  renderCitiesList, saveData } from "./scripts/localStorage";
-import { internetConnection } from "./scripts/errorHandle";
 import "./styles/main.css";
 
 const isOnline = require("is-online");
