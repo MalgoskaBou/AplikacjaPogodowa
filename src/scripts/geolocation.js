@@ -28,7 +28,7 @@ function error(err) {
     default:
       msg = "An unknown error occurred.";
   }
-  return msg;
+  alert(msg);
 }
 
 function displayCurrentData() {
