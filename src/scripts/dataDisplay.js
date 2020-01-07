@@ -11,16 +11,29 @@ function updateCurrentData(object) {
   document.getElementById("wind").innerHTML = object.wind;
   document.getElementById("pressure").innerHTML = object.pressure;
   document.getElementById("humidity").innerHTML = object.humidity;
-  document.getElementById("icon").style.backgroundImage = `url(assets/${object.icon}.svg)`;
+  // document.getElementById("icon").style.backgroundImage = `url(assets/${object.icon}.svg)`;
+  //
+  console.log("weather: " + JSON.stringify(object));
+  $(".data__icon").load(`assets/${object.icon}.html`);
+  // $.ajax({
+  //   url: "assets/cloudy-day.html",
+  //   success: function (result) {
+  //     $("#icon").html(result);
+  //   }
+  // });
+
 }
 
 function updateForecastData(object) {
   object.forEach((day, id) => {
     document.getElementById(`day${id+1}`).innerHTML = object[id].weekday;
     document.getElementById(`temp${id+1}`).innerHTML = object[id].temp;
-    document.getElementById(`icon${id+1}`).style.backgroundImage = `url(assets/${object[id].icon}.svg)`;
+    // document.getElementById(`icon${id+1}`).style.backgroundImage = `url(assets/${object[id].icon}.svg)`;
   })
 }
 
 
-export { updateCurrentData, updateForecastData };
+export {
+  updateCurrentData,
+  updateForecastData
+};
