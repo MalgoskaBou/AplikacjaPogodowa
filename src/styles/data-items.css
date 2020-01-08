@@ -114,6 +114,11 @@
     width: 30%;
     font-size: 18px;
   }
+
+  .main__date {
+    padding-top: 20px;
+    font-size: 1.25em;
+  }
 }
 
 @media screen and (orientation: portrait) and (max-width: 600px) {
@@ -139,6 +144,7 @@
 
   .main__date {
     padding-top: 60px;
+    font-size: 1.25em;
   }
 
 }
