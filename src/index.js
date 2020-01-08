@@ -1,19 +1,8 @@
 import displayWeatherByCoordinates from "./scripts/geolocation";
-import {
-  getWeatherByCity
-} from "./scripts/dataGet";
-import {
-  getForecastByCity
-} from "./scripts/getForecast";
-import {
-  updateCurrentData,
-  updateForecastData
-} from "./scripts/dataDisplay";
-import {
-  getData,
-  renderCitiesList,
-  saveData
-} from "./scripts/localStorage";
+import {getWeatherByCity} from "./scripts/dataGet";
+import {getForecastByCity} from "./scripts/getForecast";
+import {updateCurrentData, updateForecastData} from "./scripts/dataDisplay";
+import {getData, renderCitiesList, saveData} from "./scripts/localStorage";
 import "./styles/main.css";
 
 const isOnline = require("is-online");
@@ -69,7 +58,7 @@ async function weatherByCity(e) {
 const moment = require('moment');
 const currentTime = document.querySelector(".main__date");
 (function timedUpdate() {
-  currentTime.innerHTML = moment().format('Do MMMM YYYY, h:mm a');
+  currentTime.innerHTML = moment().format('Do MMMM YYYY, HH:mm');
   setTimeout(timedUpdate, 30000);
 })()
 
