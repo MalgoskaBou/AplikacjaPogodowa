@@ -1,136 +1,144 @@
 .data__temp-big {
-    grid-area: temperature;
-    font-size: 144px;
-    line-height: 1;
+  grid-area: temperature;
+  font-size: 144px;
+  line-height: 1;
 }
 
 .data__basic {
-    grid-area: basic;
-    font-size: 24px;
+  grid-area: basic;
+  font-size: 24px;
 }
 
 .data__detail {
-    grid-area: details;
-    font-size: 18px;
+  grid-area: details;
+  font-size: 18px;
 }
 
 .data__icon {
-    grid-area: img;
-    width: 90%;
-    height: 80%;
-    justify-self: center;
-    background-image: url("/assets/02d.svg");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
+  position: relative;
+  grid-area: img;
+  width: 90%;
+  height: 80%;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
 }
 
 .data__forecast {
-    grid-area: forecast;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-between;
-    align-items: start;
+  grid-area: forecast;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  align-items: start;
 }
 
 .forecast__day {
-    width: 70px;
-    height: 100px;
-    overflow: hidden;
-    padding: 5px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 70px;
+  height: 100px;
+  overflow: hidden;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #FAF2E5;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0.1em 0.1em 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .day__weekday {
-    align-self: center;
-    font-size: 16px;
+  align-self: center;
+  font-size: 16px;
 }
 
 .day__icon {
-    width: 70%;
-    height: 40%;
-    align-self: center;
-    background-image: url("/assets/50d.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  position: relative;
+  width: 70%;
+  height: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .day__temp {
-    align-self: left;
-    font-size: 24px;
+  align-self: left;
+  font-size: 24px;
 }
 
 @media screen and (orientation: landscape) and (max-height: 670px) {
-    .data__temp-big {
-        font-size: 100px;
-        padding-top: 20px;
-    }
+  .data__temp-big {
+    font-size: 100px;
+    padding-top: 20px;
+  }
 
-    .data__basic {
-        font-size: 18px;
-    }
+  .data__basic {
+    font-size: 18px;
+  }
 
-    .data__detail {
-        font-size: 16px;
-    }
+  .data__detail {
+    font-size: 16px;
+  }
 
-    .data__forecast {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-        grid-gap: 3px;
-        justify-content: end;
-        align-items: start;
-    }
+  .data__forecast {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 3px;
+    justify-content: end;
+    align-items: start;
+  }
 
-    .forecast__day {
-        flex-direction: row;
-        width: 120px;
-        height: 50px;
-        align-items: center;
-    }
+  .forecast__day {
+    flex-direction: row;
+    width: 120px;
+    height: 50px;
+    align-items: center;
+  }
 
-    .day__weekday {
-        width: 30%;
-        font-size: 14px;
-    }
+  .day__weekday {
+    width: 30%;
+    font-size: 14px;
+  }
 
-    .day__icon {
-        width: 40%;
-        height: 90%;
-    }
+  .day__icon {
+    width: 40%;
+    height: 90%;
+  }
 
-    .day__temp {
-        width: 30%;
-        font-size: 18px;
-    }
+  .day__temp {
+    width: 30%;
+    font-size: 18px;
+  }
 }
 
 @media screen and (orientation: portrait) and (max-width: 600px) {
-    .data__temp-big {
-        font-size: 100px;
-    }
+  .data__temp-big {
+    font-size: 100px;
+  }
 
-    .forecast__day,
-    .data__basic,
-    .data__detail {
-        align-self: center;
-    }
+  .forecast__day,
+  .data__basic,
+  .data__detail {
+    align-self: center;
+  }
 
-    .data__basic,
-    .day__temp {
-        font-size: 18px;
-    }
+  .data__basic,
+  .day__temp {
+    font-size: 18px;
+  }
 
-    .data__detail,
-    .day__weekday {
-        font-size: 16px;
-    }
+  .data__detail,
+  .day__weekday {
+    font-size: 16px;
+  }
+
+  .main__date {
+    padding-top: 60px;
+  }
+
 }

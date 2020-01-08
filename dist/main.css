@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext);
+
 *,
 ::after,
 ::before {
@@ -6,6 +7,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 :root {
     --main-font: Roboto, Arial, sans-serif;
     --main-font-size: 24px;
@@ -16,6 +18,7 @@
     --blue: #2D7A9C;
     --dark-blue: #2D7A9C;
 }
+
 p,
 li,
 ul,
@@ -25,6 +28,7 @@ button {
     line-height: 1.2;
     color: var(--dark);
 }
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -44,6 +48,7 @@ screen and (orientation: portrait) and (max-width: 800px) {
         grid-template-rows: 1fr;
     }
 }
+
 .background-frame {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
@@ -91,11 +96,8 @@ screen and (orientation: portrait) and (max-width: 800px) {
 @media screen and (orientation: landscape) and (max-height: 670px) {
     .background-frame {
         grid-template-columns: 1fr minmax(600px, 750px) 1fr;
-        grid-template-rows: 
-        minmax(20px, 1fr) 
-        minmax(190px, 200px) 
-        minmax(370px, 400px) 
-        minmax(20px, 1fr);
+        grid-template-rows:
+            minmax(20px, 1fr) minmax(190px, 200px) minmax(370px, 400px) minmax(20px, 1fr);
     }
 
     .background-frame__color {
@@ -113,11 +115,8 @@ screen and (orientation: portrait) and (max-width: 800px) {
 @media screen and (orientation: portrait) and (max-width: 800px) {
     .background-frame {
         grid-template-columns: 1fr minmax(600px, 750px) 1fr;
-        grid-template-rows: 
-        minmax(50px, 1fr) 
-        minmax(200px, 250px) 
-        minmax(400px, 500px) 
-        minmax(100px, 1fr);
+        grid-template-rows:
+            minmax(50px, 1fr) minmax(200px, 250px) minmax(400px, 500px) minmax(100px, 1fr);
     }
 
     .background-frame__color {
@@ -137,6 +136,7 @@ screen and (orientation: portrait) and (max-width: 800px) {
         display: none;
     }
 }
+
 .background-frame__main {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
@@ -198,6 +198,7 @@ screen and (orientation: portrait) and (max-width: 800px) {
         grid-template-rows: 1fr 3fr;
     }
 }
+
 .main__localization {
     padding: 16px 20px 0 20px;
     position: relative;
@@ -401,6 +402,7 @@ screen and (orientation: portrait) and (max-width: 800px) {
         right: 15px;
     }
 }
+
 .main__data {
     padding: 20px;
     padding-top: 0;
@@ -626,4 +628,3 @@ screen and (orientation: portrait) and (max-width: 800px) {
         font-size: 16px;
     }
 }
-
