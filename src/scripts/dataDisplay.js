@@ -14,14 +14,7 @@ function updateCurrentData(object) {
   // document.getElementById("icon").style.backgroundImage = `url(assets/${object.icon}.svg)`;
   //
   console.log("weather: " + JSON.stringify(object));
-  $(".data__icon").load(`assets/${object.icon}.html`);
-  // $.ajax({
-  //   url: "assets/cloudy-day.html",
-  //   success: function (result) {
-  //     $("#icon").html(result);
-  //   }
-  // });
-
+  $("#icon").load(`assets/${object.icon}.html`);
 }
 
 function updateForecastData(object) {
@@ -29,6 +22,8 @@ function updateForecastData(object) {
     document.getElementById(`day${id+1}`).innerHTML = object[id].weekday;
     document.getElementById(`temp${id+1}`).innerHTML = object[id].temp;
     // document.getElementById(`icon${id+1}`).style.backgroundImage = `url(assets/${object[id].icon}.svg)`;
+    $(`#icon${id+1}`).load(`assets/${object[id].icon}.html`);
+
   })
 }
 
