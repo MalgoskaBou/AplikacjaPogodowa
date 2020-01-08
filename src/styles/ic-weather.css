@@ -1,13 +1,23 @@
+.data__icons__big {
+    position: relative;
+    width: 70%;
+    box-sizing: border-box;    
+    transform: scale(8);
+    left: 16em;
+    top: 1.2em;
+}
+
 .icon {
     position: relative;
     display: inline-block;
-    /* width: 12em; */
-    /* height: 12em; */
-    /* font-size: 1em; */
+    width: 70%;
+    height: auto;
 }
 
 div.icon {
+    position: relative;
     transform: scale(0.2);
+    top: -0.8em;
 }
 
 /* SUNNY */
@@ -413,4 +423,26 @@ div.icon {
     55% {
         opacity: 0.2;
     }
+}
+
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    
+  .data__icons__big {
+    left: 8em;
+    top: 4em;
+  }
+}
+
+
+@media screen and (orientation: landscape) and (max-height: 670px) {
+    .data__icons__big {
+        transform: scale(5.2);
+        left: 8.4em;
+        top: 0.2em;
+      }
+
+     .icon {
+         left:-0.8em;
+     }
 }

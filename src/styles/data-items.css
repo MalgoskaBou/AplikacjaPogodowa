@@ -19,8 +19,6 @@
   grid-area: img;
   width: 90%;
   height: 80%;
-  justify-self: center;
-  /* background-image: url("/assets/03d.svg"); */
   background-repeat: no-repeat;
   background-position: top;
   background-size: contain;
@@ -43,7 +41,6 @@
   height: 100px;
   overflow: hidden;
   padding: 5px;
-  /* background: #fff; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,8 +61,6 @@
   position: relative;
   width: 70%;
   height: 40%;
-  align-self: center;
-  /* background-image: url("/assets/50d.svg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -141,4 +136,9 @@
   .day__weekday {
     font-size: 16px;
   }
+
+  .main__date {
+    padding-top: 60px;
+  }
+
 }

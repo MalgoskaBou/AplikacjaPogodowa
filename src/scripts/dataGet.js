@@ -37,23 +37,11 @@ async function getWeatherByCoordinates(lat, lon) {
   }
 }
 
-
-// const currentDate = () => {
-//   const a = new Date(Date.now());
-//   const year = a.getFullYear();
-//   const month = a.getMonth() + 1;
-//   const day = a.getDate();
-//   const time = year + '-' + month + '-' + day;
-//   return time;
-// };
-
-
 async function mapToWeatherObj(rawWeatherData) {
   const weatherObj = await rawWeatherData.json();
 
   const weatherInfo = {
     city: weatherObj.name,
-    // date: currentDate(),
     temp: Math.round(weatherObj.main.temp),
     tempMin: Math.round(weatherObj.main.temp_min),
     tempMax: Math.round(weatherObj.main.temp_max),
