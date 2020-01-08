@@ -425,16 +425,6 @@ div.icon {
     }
 }
 
-
-@media screen and (orientation: portrait) and (max-width: 600px) {
-    
-  .data__icons__big {
-    left: 8em;
-    top: 4em;
-  }
-}
-
-
 @media screen and (orientation: landscape) and (max-height: 670px) {
     .data__icons__big {
         transform: scale(5.2);
@@ -444,5 +434,25 @@ div.icon {
 
      .icon {
          left:-0.8em;
+     }
+}
+
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    
+    .data__icons__big {
+      left: 6em;
+      top: 4em;
+    }
+  }
+  
+  @media screen and (orientation: landscape) and (width: 533px) and (height: 320px) {
+    .data__icons__big {
+        transform: scale(4.2);
+        left: 4em;
+        top: 0.2em;
+      }
+
+     .icon {
+         left:-0.6em;
      }
 }
