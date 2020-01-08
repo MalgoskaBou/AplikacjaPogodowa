@@ -1,13 +1,23 @@
-import { getWeatherByCoordinates } from "./dataGet";
-import { getForecastByCoordinates } from "./getForecast";
-import { updateCurrentData, updateForecastData } from "./dataDisplay";
+import {
+  getWeatherByCoordinates
+} from "./dataGet";
+import {
+  getForecastByCoordinates
+} from "./getForecast";
+import {
+  updateCurrentData,
+  updateForecastData
+} from "./dataDisplay";
 
 const options = {
   timeout: 5000
 };
 
 async function success(position) {
-  const { latitude, longitude } = position.coords;
+  const {
+    latitude,
+    longitude
+  } = position.coords;
   //current weather data:
   const weatherObj = await getWeatherByCoordinates(latitude, longitude);
   updateCurrentData(weatherObj);
