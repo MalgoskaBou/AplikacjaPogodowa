@@ -33,3 +33,22 @@
             "forecast           forecast";
     }
 }
+
+@media screen and (orientation: landscape) and (width: 533px) and (height: 320px) {
+    .main__data {
+        padding: 10px 20px 60px;
+    }
+}
+
+@media screen and (orientation: portrait) and (width: 320px) and (height: 533px) {
+    .main__data {
+        padding: 0 20px 10px;
+    }
+}
+
+@media screen and (orientation: landscape) and (width: 568px) and (height: 320px) {
+    .main__data {
+        padding: 10px 20px 60px;
+    }
+}
+
