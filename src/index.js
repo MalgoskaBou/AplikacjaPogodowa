@@ -16,8 +16,12 @@ async function weatherByCoordinates() {
 async function weatherByCity(e) {
     e.preventDefault();
     const city = document.querySelector(".form__search").value;
-    await getWeatherByCity(city);
-    await getForecastByCity(city);
+    try {
+        await getWeatherByCity(city);
+        await getForecastByCity(city);
+    } catch(err) {
+        alert(err.message);
+    }
 }
 
 
@@ -38,10 +42,10 @@ async function startApp() {
   if (cities.length === 0) {
     await weatherByCoordinates();
   } else {
+    await getWeatherByCity(cities[0]);
+    // await getForecastByCity(cities[0]);
     renderCitiesList(cities);
     document.querySelector(".form__search").value = cities[0];
-    await getWeatherByCity(cities[0]);
-    await getForecastByCity(cities[0]);
   }
 }
 

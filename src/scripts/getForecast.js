@@ -8,20 +8,24 @@ const url = "https://api.openweathermap.org/data/2.5/";
 
 async function getForecastByCity(city) {
     const urlCity = `${url}forecast?q=${city}&units=metric&appid=${key}`;
-    try {
-        const rawForecastData = await fetch(urlCity);
-        const forecastData = await mapToForecastObj(rawForecastData);
-        updateForecastData(forecastData);
-    } catch (err) {
-        document.querySelector(".form__search").blur();
-        if (err === 404) {
-            console.log("Sorry, we couldn't find weather data for your city.");
-          } else if (err === 401) {
-            console.log("API key is not correct");
-          } else {
-            console.log("An unknown error occurred");
-          }
-    }      
+    fetch(urlCity)
+    .then(response => {
+        if (response.ok) {
+            return mapToForecastObj(response);
+        } else {
+            throw new Error(response.status);
+        }
+    })
+    .then(forecastData => updateForecastData(forecastData))
+    .catch (err =>{
+        if (err.message == 404) {
+            console.log("Sorry, we couldn't find forecast data for your city.");
+        } else if (err.message == 401) {
+            console.log("Sorry, your API key is not correct.");
+        } else {
+            console.log("An unknown error occurred.");
+        }
+    })      
 }
 
 

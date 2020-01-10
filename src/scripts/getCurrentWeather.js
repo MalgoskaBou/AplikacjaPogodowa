@@ -8,23 +8,32 @@ const url = "https://api.openweathermap.org/data/2.5/";
 
 async function getWeatherByCity(city) {
     const urlCity = `${url}weather?q=${city}&units=metric&appid=${key}`;
-    try {
-        const rawWeatherData = await fetch(urlCity)
-        const weatherData = await mapToWeatherObj(rawWeatherData);
-        updateCurrentData(weatherData);
-        saveData();
-        renderCitiesList();
-        document.querySelector(".form__search").blur();
-    } catch (err) {
-        document.querySelector(".form__search").blur();
-        if (err === 404) {
-          alert("Sorry, we couldn't find weather data for your city.");
-        } else if (err === 401) {
-          alert("Sorry, your API key is not correct.");
-        } else {
-          alert("An unknown error occurred.");
-        }
-    }
+
+        fetch(urlCity)
+        .then(response => {
+            if (response.ok) {
+                return mapToWeatherObj(response);
+            } else {
+                throw new Error(response.status);
+            }
+        })
+        .then(weatherData => {
+            updateCurrentData(weatherData);
+            saveData();
+            renderCitiesList();
+            document.querySelector(".form__search").blur();
+        })
+        .catch(err => {
+            document.querySelector(".form__search").value = "";
+            document.querySelector(".form__search").blur();
+            if (err.message == 404) {
+                alert("Sorry, we couldn't find weather data for your city.");
+            } else if (err.message == 401) {
+                alert("Sorry, your API key is not correct.");
+            } else {
+                alert("An unknown error occurred.");
+            }
+        });
 }
 
 
