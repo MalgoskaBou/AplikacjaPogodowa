@@ -1,4 +1,5 @@
 import getKey from './apikey';
+import {updateForecastData} from "./dataDisplay";
 // import { currentDate } from './dataGet';
 
 const key = getKey();
@@ -8,17 +9,19 @@ const url = "https://api.openweathermap.org/data/2.5/";
 async function getForecastByCity(city) {
     const urlCity = `${url}forecast?q=${city}&units=metric&appid=${key}`;
     try {
-        const rawForecastData = await fetch(urlCity).then(response => {
-            if (response.status != 200) {
-              throw response.status;
-            }
-            return response;
-        });
-        const finalForecast = mapToForecastObj(rawForecastData);
-        return finalForecast;
+        const rawForecastData = await fetch(urlCity);
+        const forecastData = await mapToForecastObj(rawForecastData);
+        updateForecastData(forecastData);
     } catch (err) {
-        throw err;
-    }
+        document.querySelector(".form__search").blur();
+        if (err === 404) {
+            console.log("Sorry, we couldn't find weather data for your city.");
+          } else if (err === 401) {
+            console.log("API key is not correct");
+          } else {
+            console.log("An unknown error occurred");
+          }
+    }      
 }
 
 
@@ -75,4 +78,4 @@ function currentDate () {
 };
 
 
-export { getForecastByCity, getForecastByCoordinates }
+export { getForecastByCity, getForecastByCoordinates };
