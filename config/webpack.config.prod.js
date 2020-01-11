@@ -3,6 +3,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'production',
@@ -45,6 +46,9 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.DefinePlugin({'process.env': {
+           'API_KEY': JSON.stringify(process.env.API_KEY)
+        }}),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
