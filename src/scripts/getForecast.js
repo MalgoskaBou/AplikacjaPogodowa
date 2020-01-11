@@ -1,8 +1,7 @@
-import getKey from './apikey';
 import {updateForecastData} from "./dataDisplay";
 // import { currentDate } from './dataGet';
 
-const key = getKey();
+const key = process.env.API_KEY;
 const url = "https://api.openweathermap.org/data/2.5/";
 
 

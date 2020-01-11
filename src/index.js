@@ -5,6 +5,8 @@ import {getData, renderCitiesList, saveData} from "./scripts/localStorage";
 import "./styles/main.css";
 const isOnline = require("is-online");
 
+require( './scripts/apikey');
+
 async function weatherByCoordinates() {
   await displayWeatherByCoordinates();
   saveData();

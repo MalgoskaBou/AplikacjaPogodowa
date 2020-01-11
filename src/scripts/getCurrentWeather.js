@@ -1,8 +1,7 @@
-import getKey from "./apikey.js";
 import {updateCurrentData} from "./dataDisplay";
 import {renderCitiesList, saveData} from "./localStorage";
 
-const key = getKey();
+const key = process.env.API_KEY;
 const url = "https://api.openweathermap.org/data/2.5/";
 
 
