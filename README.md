@@ -1,5 +1,7 @@
 # Project Description
 > The application shows current weather in a given loacation as well as forecast for the next 4 days. <br />
+Demo: [https://cc19weatherapp.herokuapp.com/](https://cc19weatherapp.herokuapp.com/)
+
 
 ## Table of contents
 * [General info](#general-info)
@@ -19,7 +21,8 @@ The main goal of this application is to check current weather.
 * JavaScript
 
 ## Setup
-### `npm start`
+### `npm i`
+### `npm run dev`
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
