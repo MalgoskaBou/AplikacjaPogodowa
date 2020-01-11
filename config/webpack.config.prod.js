@@ -1,10 +1,9 @@
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -32,8 +31,8 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.(png|jpeg|jpg|svg|ttf|woof|woof2|wav|mp3)$/,
@@ -52,8 +51,8 @@ module.exports = {
             template: 'src/index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
+            filename: '[name].css'
+          }),
         new CopyPlugin([{
             from: 'src/assets',
             to: 'assets'
