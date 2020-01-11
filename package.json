@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node src/server.js",
-		"heroku-postbuild": "webpack -p",
+    "build": "webpack --mode production --config ./config/webpack.config.prod.js",
 		"dev": "webpack-dev-server --config ./config/webpack.config.js",
 		"prod": "webpack --config ./config/webpack.config.prod.js"
 	},
