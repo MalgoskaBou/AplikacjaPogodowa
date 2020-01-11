@@ -1,12 +1,9 @@
 import displayWeatherByCoordinates from "./scripts/geolocation";
-import {getWeatherByCity} from "./scripts/dataGet";
+import {getWeatherByCity} from "./scripts/getCurrentWeather";
 import {getForecastByCity} from "./scripts/getForecast";
-import {updateCurrentData, updateForecastData} from "./scripts/dataDisplay";
 import {getData, renderCitiesList, saveData} from "./scripts/localStorage";
 import "./styles/main.css";
-
 const isOnline = require("is-online");
-
 
 async function weatherByCoordinates() {
   await displayWeatherByCoordinates();
@@ -15,45 +12,27 @@ async function weatherByCoordinates() {
 }
 
 async function weatherByCity(e) {
-  e.preventDefault();
-  const city = document.querySelector(".form__search").value;
-
-  getWeatherByCity(city)
-    .then(dataObj => {
-      updateCurrentData(dataObj);
-      saveData();
-      renderCitiesList();
-      document.querySelector(".form__search").blur();
-    })
-    .catch(err => {
-      document.querySelector(".form__search").blur();
-      if (err !== 200) {
-        if (err === 404) {
-          alert("Sorry, we couldn't find weather data for your city.");
-        } else if (err === 401) {
-          alert("Sorry, your API key is not correct.");
-        } else {
-          alert("An unknown error occurred.");
-        }
-      }
-    });
-
-  getForecastByCity(city)
-    .then(dataObj => updateForecastData(dataObj))
-    .catch(err => {
-      document.querySelector(".form__search").blur();
-      if (err !== 200) {
-        if (err === 404) {
-          console.log("Sorry, we couldn't find weather data for your city.");
-        } else if (err === 401) {
-          console.log("API key is not correct");
-        } else {
-          console.log("An unknown error occurred");
-        }
-      }
-    });
+    e.preventDefault();
+    const city = document.querySelector(".form__search").value;
+    try {
+        await getWeatherByCity(city);
+        await getForecastByCity(city);
+        document.querySelector(".form__search").value = getData()[0] || "";
+    } catch(err) {
+        alert(err.message);
+    }
 }
 
+async function weatherBySavedCity(e) {
+    const city = e.target.innerText;
+    try {
+        await getWeatherByCity(city);
+        await getForecastByCity(city);
+        document.querySelector(".form__search").value = getData()[0] || "";
+    } catch(err) {
+        alert(err.message);
+    }
+}
 
 const moment = require('moment');
 const currentTime = document.querySelector(".main__date");
@@ -62,8 +41,8 @@ const currentTime = document.querySelector(".main__date");
   setTimeout(timedUpdate, 30000);
 })()
 
-
 async function startApp() {
+    console.log(savedCities);
   if (!await isOnline()) {
     alert("No internet connection.")
   }
@@ -72,15 +51,18 @@ async function startApp() {
   if (cities.length === 0) {
     await weatherByCoordinates();
   } else {
+    await getWeatherByCity(cities[0]);
+    await getForecastByCity(cities[0]);
     renderCitiesList(cities);
-    document.querySelector(".form__search").value = cities[0];
+    document.querySelector(".form__search").value = cities[0] || "";
   }
 }
 
-
 const searchForm = document.querySelector(".main__form");
 const geolocationButton = document.querySelector(".localization__findme-btn");
+const savedCities = document.querySelector(".form__suggestions");
 
 document.addEventListener("DOMContentLoaded", startApp);
 geolocationButton.addEventListener("click", weatherByCoordinates);
 searchForm.addEventListener("submit", weatherByCity);
+savedCities.addEventListener("click", weatherBySavedCity);

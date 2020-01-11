@@ -62,11 +62,11 @@
     padding: 0 20px;
     background: rgba(255, 255, 255, 0.85);
     list-style: none;
-    display: none;
+    visibility: hidden;
 }
 
 .main__form:focus-within .form__suggestions {
-    display: block;
+    visibility: visible;
 }
 
 .form__list-item {

@@ -1,4 +1,4 @@
-import {getWeatherByCoordinates} from "./dataGet";
+import {getWeatherByCoordinates} from "./getCurrentWeather";
 import {getForecastByCoordinates} from "./getForecast";
 import {updateCurrentData, updateForecastData} from "./dataDisplay";
 
