@@ -1,46 +1,49 @@
 {
-  "name": "aplikacjapogodowa",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node src/server.js",
-    "heroku-postbuild": "webpack -p",
-    "dev": "webpack-dev-server --config ./config/webpack.config.js",
-    "prod": "webpack --config ./config/webpack.config.prod.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MalgoskaBou/AplikacjaPogodowa.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MalgoskaBou/AplikacjaPogodowa/issues"
-  },
-  "homepage": "https://github.com/MalgoskaBou/AplikacjaPogodowa#readme",
-  "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/polyfill": "^7.7.0",
-    "@babel/preset-env": "^7.7.1",
-    "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.5",
-    "css-loader": "^3.2.0",
-    "dotenv": "^8.2.0",
-    "dotenv-webpack": "^1.7.0",
-    "file-loader": "^4.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "moment": "^2.24.0",
-    "moment-locales-webpack-plugin": "^1.1.2",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "is-online": "^8.2.1"
-  }
+	"name": "aplikacjapogodowa",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node src/server.js",
+		"heroku-postbuild": "webpack -p",
+		"dev": "webpack-dev-server --config ./config/webpack.config.js",
+		"prod": "webpack --config ./config/webpack.config.prod.js"
+	},
+	"engines": {
+		"node": "12.13.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MalgoskaBou/AplikacjaPogodowa.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/MalgoskaBou/AplikacjaPogodowa/issues"
+	},
+	"homepage": "https://github.com/MalgoskaBou/AplikacjaPogodowa#readme",
+	"devDependencies": {
+		"@babel/core": "^7.7.2",
+		"@babel/polyfill": "^7.7.0",
+		"@babel/preset-env": "^7.7.1",
+		"babel-loader": "^8.0.6",
+		"clean-webpack-plugin": "^3.0.0",
+		"copy-webpack-plugin": "^5.0.5",
+		"css-loader": "^3.2.0",
+		"dotenv": "^8.2.0",
+		"dotenv-webpack": "^1.7.0",
+		"file-loader": "^4.2.0",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.8.0",
+		"moment": "^2.24.0",
+		"moment-locales-webpack-plugin": "^1.1.2",
+		"style-loader": "^1.0.0",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.10",
+		"webpack-dev-server": "^3.9.0"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"is-online": "^8.2.1"
+	}
 }
