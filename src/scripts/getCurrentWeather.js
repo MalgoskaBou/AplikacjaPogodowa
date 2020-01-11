@@ -24,7 +24,6 @@ async function getWeatherByCity(city) {
             document.querySelector(".form__search").blur();
         })
         .catch(err => {
-            document.querySelector(".form__search").value = "";
             document.querySelector(".form__search").blur();
             if (err.message == 404) {
                 alert("Sorry, we couldn't find weather data for your city.");
