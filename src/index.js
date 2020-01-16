@@ -43,7 +43,7 @@ async function displayMatchingCities (e) {
 	const userInput = e.target.value;
 	if (userInput.length ) {
 		const matchingCities = await findMatchingCities(userInput, citiesDb);
-		renderMatchingCitiesList(matchingCities);
+		renderMatchingCitiesList(matchingCities, userInput);
 	} else {
 		const cities = getData();
 		renderCitiesList(cities);

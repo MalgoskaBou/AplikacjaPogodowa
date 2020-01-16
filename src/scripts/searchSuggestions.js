@@ -18,13 +18,15 @@ function findMatchingCities (cityToMatch, citiesDb) {
     return Array.from(new Set(matches)).sort();
 }
 
-async function renderMatchingCitiesList (matchingCities) {
+async function renderMatchingCitiesList (matchingCities, userInput) {
     const citiesList = document.querySelector('.form__suggestions');
     citiesList.innerHTML = "";
+    const regex = new RegExp(userInput, 'gi');
     for (let i = 0; i < 8; i++) {
         if (matchingCities[i]) {
+            const chars = matchingCities[i].replace(regex, `<span>${userInput}</span>`);
             const liEl = document.createElement('li');
-        liEl.innerHTML = `<p class="form__city">${matchingCities[i]}</p>`;
+        liEl.innerHTML = `<p class="form__city">${chars}</p>`;
         liEl.className = "form__list-item";
         citiesList.appendChild(liEl);
         }
