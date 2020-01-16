@@ -2,7 +2,7 @@ import displayWeatherByCoordinates from './scripts/geolocation';
 import { getWeatherByCity } from './scripts/getCurrentWeather';
 import { getForecastByCity } from './scripts/getForecast';
 import { getData, renderCitiesList, saveData } from './scripts/localStorage';
-import {getCitesDb, findMatchingCities, renderMatchingCitiesList} from './scripts/searchSuggestions';
+import {getCitesDb, findMatchingCities, renderMatchingCitiesList, changeActiveSuggestion} from './scripts/searchSuggestions';
 import './styles/main.css';
 
 const isOnline = require('is-online');
@@ -41,7 +41,7 @@ async function weatherBySavedCity(e) {
 
 async function displayMatchingCities (e) {
 	const userInput = e.target.value;
-	if (userInput.length ) {
+	if (userInput.length && citiesDb) {
 		const matchingCities = await findMatchingCities(userInput, citiesDb);
 		renderMatchingCitiesList(matchingCities, userInput);
 	} else {
@@ -50,7 +50,7 @@ async function displayMatchingCities (e) {
 	}
 }
 
-async function displayCurrentCity (e) {
+function displayCurrentCity () {
 	const cities = getData();
 	document.querySelector('.form__search').value = cities[0] || '';
 }
@@ -66,9 +66,7 @@ async function startApp() {
    	if (!(await isOnline())) {
 		alert('No internet connection.');
 	}
-
 	citiesDb = {...(await getCitesDb())};
-
 	const cities = getData();
 	if (cities.length === 0) {
 		await weatherByCoordinates();
@@ -90,6 +88,7 @@ document.addEventListener('DOMContentLoaded', startApp);
 geolocationButton.addEventListener('click', weatherByCoordinates);
 searchForm.addEventListener('submit', weatherByCity);
 searchInput.addEventListener('input', displayMatchingCities);
+searchInput.addEventListener('keydown', changeActiveSuggestion);
 searchInput.addEventListener('blur', displayCurrentCity);
 savedCities.addEventListener('click', weatherBySavedCity);
 
