@@ -78,6 +78,11 @@
     cursor: pointer;
 }
 
+.form__list-item span {
+    font-weight: 800;
+    color: var(--orange);
+}
+
 .form__list-item:hover {
     padding: 30px 0;
     background: #fff;
