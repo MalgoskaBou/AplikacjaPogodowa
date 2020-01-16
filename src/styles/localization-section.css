@@ -82,7 +82,7 @@
     color: var(--orange);
 }
 
-.form__list-item:hover {
+.form__list-item:hover, .form__list-item.active {
     padding: 30px 0;
     background: #fff;
 }
