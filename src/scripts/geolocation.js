@@ -1,6 +1,7 @@
 import {getWeatherByCoordinates} from "./getCurrentWeather";
 import {getForecastByCoordinates} from "./getForecast";
 import {updateCurrentData, updateForecastData} from "./dataDisplay";
+import { renderCitiesList, saveData } from './localStorage';
 
 const options = {
   timeout: 5000
@@ -9,11 +10,15 @@ const options = {
 async function success(position) {
   const {latitude, longitude} = position.coords;
   //current weather data:
-  const weatherObj = await getWeatherByCoordinates(latitude, longitude);
-  updateCurrentData(weatherObj);
+  await getWeatherByCoordinates(latitude, longitude)
+  .then(weatherObj => {
+    updateCurrentData(weatherObj);
+    saveData();
+    renderCitiesList();
+  });
   //forecast weather data:
-  const forecastObj = await getForecastByCoordinates(latitude, longitude);
-  updateForecastData(forecastObj);
+  await getForecastByCoordinates(latitude, longitude)
+  .then(forecastObj => updateForecastData(forecastObj));
 }
 
 function error(err) {
@@ -31,7 +36,7 @@ function error(err) {
   alert(msg);
 }
 
-function displayCurrentData() {
+function weatherByCoordinates() {
   if (!navigator.geolocation) {
     alert("Sorry, geolocation is not supported in your browser...");
     return;
@@ -39,4 +44,4 @@ function displayCurrentData() {
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-export default displayCurrentData;
+export default weatherByCoordinates;

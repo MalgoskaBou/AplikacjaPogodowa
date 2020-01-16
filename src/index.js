@@ -1,4 +1,4 @@
-import displayWeatherByCoordinates from './scripts/geolocation';
+import weatherByCoordinates from './scripts/geolocation';
 import { getWeatherByCity } from './scripts/getCurrentWeather';
 import { getForecastByCity } from './scripts/getForecast';
 import { getData, renderCitiesList, saveData } from './scripts/localStorage';
@@ -9,12 +9,6 @@ const isOnline = require('is-online');
 let citiesDb;
 
 require('./scripts/apikey');
-
-async function weatherByCoordinates() {
-	await displayWeatherByCoordinates();
-	saveData();
-	renderCitiesList();
-}
 
 async function weatherByCity(e) {
 	e.preventDefault();
