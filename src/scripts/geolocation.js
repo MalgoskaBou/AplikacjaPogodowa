@@ -1,24 +1,14 @@
 import {getWeatherByCoordinates} from "./getCurrentWeather";
 import {getForecastByCoordinates} from "./getForecast";
-import {updateCurrentData, updateForecastData} from "./dataDisplay";
-import { renderCitiesList, saveData } from './localStorage';
 
 const options = {
   timeout: 5000
 };
 
 async function success(position) {
-  const {latitude, longitude} = position.coords;
-  //current weather data:
-  await getWeatherByCoordinates(latitude, longitude)
-  .then(weatherObj => {
-    updateCurrentData(weatherObj);
-    saveData();
-    renderCitiesList();
-  });
-  //forecast weather data:
-  await getForecastByCoordinates(latitude, longitude)
-  .then(forecastObj => updateForecastData(forecastObj));
+    const {latitude, longitude} = position.coords;
+    await getWeatherByCoordinates(latitude, longitude)
+    await getForecastByCoordinates(latitude, longitude);
 }
 
 function error(err) {
@@ -33,12 +23,13 @@ function error(err) {
     default:
       msg = "An unknown error occurred.";
   }
-  alert(msg);
+  console.log(msg);
+  alert("Failed to load your current location. Please, type the name of the city below.");
 }
 
 function weatherByCoordinates() {
   if (!navigator.geolocation) {
-    alert("Sorry, geolocation is not supported in your browser...");
+    alert("Geolocation is not supported in your browser. Please, type the name of the city below.");
     return;
   }
   navigator.geolocation.getCurrentPosition(success, error, options);

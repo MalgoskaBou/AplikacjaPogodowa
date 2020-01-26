@@ -1,13 +1,9 @@
 async function getCitesDb() {
 	const url =
 		'https://raw.githubusercontent.com/dariaka/all-countries-and-cities-json/master/countries.json';
-	const citiesDb = await fetch(url)
+		return fetch(url)
 		.then(response => response.json())
-		.then(data => {
-			return { ...data };
-		})
 		.catch(err => console.log(err));
-	return citiesDb;
 }
 
 function findMatchingCities(cityToMatch, citiesDb) {
@@ -41,10 +37,11 @@ async function renderMatchingCitiesList(matchingCities, userInput) {
 
 function changeActiveSuggestion (e) {
 	if (e.keyCode !== 38 && e.keyCode !== 40) return;
+	
 	const listItems = document.querySelectorAll('.form__list-item');
 	let activeId = -1;
-	listItems.forEach((item, id) => {
-		if (item.classList.contains('active')) activeId = id;
+	listItems.forEach((item, itemId) => {
+		if (item.classList.contains('active')) activeId = itemId;
 	});
 	if (activeId > -1) listItems[activeId].classList.remove('active');
 

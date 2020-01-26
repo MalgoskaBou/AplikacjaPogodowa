@@ -1,5 +1,7 @@
+import moment from 'moment';
+
 function updateCurrentData(object) {
-  document.querySelector(".form__search").value = `${object.city}`;
+  document.querySelector(".form__search").value = object.city;
   document.querySelector('.form__search').blur();
   document.getElementById("bigTemp").innerHTML = object.temp;
   document.getElementById("tempMin").innerHTML = object.tempMin;
@@ -19,4 +21,10 @@ function updateForecastData(object) {
   })
 }
 
-export {updateCurrentData, updateForecastData};
+function updateTime(offsetInSec) {
+  const currentTime = document.querySelector('.main__date');
+  const offsetInMin = offsetInSec/60;
+	currentTime.innerHTML = moment().utcOffset(offsetInMin).format('Do MMMM YYYY, HH:mm');
+};
+
+export {updateCurrentData, updateForecastData, updateTime};

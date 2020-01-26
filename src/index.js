@@ -1,24 +1,30 @@
+import  isOnline from 'is-online';
 import weatherByCoordinates from './scripts/geolocation';
 import { getWeatherByCity } from './scripts/getCurrentWeather';
 import { getForecastByCity } from './scripts/getForecast';
-import { getData, renderCitiesList, saveData } from './scripts/localStorage';
+import { getData, renderCitiesList } from './scripts/dataSaveAndRead';
 import {getCitesDb, findMatchingCities, renderMatchingCitiesList, changeActiveSuggestion} from './scripts/searchSuggestions';
 import './styles/main.css';
 
-const isOnline = require('is-online');
+require('./scripts/apikey');
 let citiesDb;
 
-require('./scripts/apikey');
+async function weatherByGeolocation() {
+	try {
+		await weatherByCoordinates()
+	  } catch (err) {
+		console.log(err.message);
+	  }
+}
 
 async function weatherByCity(e) {
 	e.preventDefault();
-	const city = document.querySelector('.form__search').value;
+	const city = e.target.querySelector('.form__search').value;
 	try {
 		await getWeatherByCity(city);
 		await getForecastByCity(city);
-		document.querySelector('.form__search').value = getData()[0] || '';
 	} catch (err) {
-		alert(err.message);
+		console.log(err.message);
 	}
 }
 
@@ -27,47 +33,45 @@ async function weatherBySavedCity(e) {
 	try {
 		await getWeatherByCity(city);
 		await getForecastByCity(city);
-		document.querySelector('.form__search').value = getData()[0] || '';
 	} catch (err) {
-		alert(err.message);
+		console.log(err.message);
 	}
 }
 
 async function displayMatchingCities (e) {
 	const userInput = e.target.value;
-	if (userInput.length && citiesDb) {
-		const matchingCities = await findMatchingCities(userInput, citiesDb);
-		renderMatchingCitiesList(matchingCities, userInput);
-	} else {
-		const cities = getData();
-		renderCitiesList(cities);
+	try {
+		if (userInput.length && citiesDb) {
+			const matchingCities = await findMatchingCities(userInput, citiesDb);
+			renderMatchingCitiesList(matchingCities, userInput);
+		} else {
+			const cities = getData();
+			renderCitiesList(cities);
+		}
+	} catch (err) {
+		console.log(err.message);
 	}
 }
 
 function displayCurrentCity () {
-	const cities = getData();
-	document.querySelector('.form__search').value = cities[0] || '';
+	const searchInput = document.querySelector('.form__search');
+	if (!searchInput.value) {
+		const cities = getData();
+		searchInput.value = cities[0] || '';
+	}
 }
-
-const moment = require('moment');
-const currentTime = document.querySelector('.main__date');
-(function timedUpdate() {
-	currentTime.innerHTML = moment().format('Do MMMM YYYY, HH:mm');
-	setTimeout(timedUpdate, 30000);
-})();
 
 async function startApp() {
    	if (!(await isOnline())) {
 		alert('No internet connection.');
 	}
-	citiesDb = {...(await getCitesDb())};
+	citiesDb = await getCitesDb();
 	const cities = getData();
 	if (cities.length === 0) {
-		await weatherByCoordinates();
+		await weatherByGeolocation();
 	} else {
 		await getWeatherByCity(cities[0]);
 		await getForecastByCity(cities[0]);
-		renderCitiesList(cities);
 		document.querySelector('.form__search').value = cities[0] || '';
 	}
 }
@@ -77,12 +81,11 @@ const searchInput = document.querySelector('.form__search');
 const savedCities = document.querySelector('.form__suggestions');
 const geolocationButton = document.querySelector('.localization__findme-btn');
 
-
 document.addEventListener('DOMContentLoaded', startApp);
-geolocationButton.addEventListener('click', weatherByCoordinates);
+geolocationButton.addEventListener('click', weatherByGeolocation);
 searchForm.addEventListener('submit', weatherByCity);
 searchInput.addEventListener('input', displayMatchingCities);
 searchInput.addEventListener('keydown', changeActiveSuggestion);
-searchInput.addEventListener('blur', displayCurrentCity);
 savedCities.addEventListener('click', weatherBySavedCity);
+searchInput.addEventListener('blur', displayCurrentCity);
 
