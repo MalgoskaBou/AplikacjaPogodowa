@@ -54,11 +54,10 @@ async function displayMatchingCities (e) {
 }
 
 function displayCurrentCity () {
-	const searchInput = document.querySelector('.form__search');
-	if (!searchInput.value) {
-		const cities = getData();
-		searchInput.value = cities[0] || '';
-	}
+	const cities = getData();
+	const userInput = document.querySelector(".form__search");
+	if (!cities.length) return;
+	if (userInput.value !== cities[0]) userInput.value = cities[0];
 }
 
 async function startApp() {
@@ -87,5 +86,5 @@ searchForm.addEventListener('submit', weatherByCity);
 searchInput.addEventListener('input', displayMatchingCities);
 searchInput.addEventListener('keydown', changeActiveSuggestion);
 savedCities.addEventListener('click', weatherBySavedCity);
-searchInput.addEventListener('blur', displayCurrentCity);
+searchInput.addEventListener('blur', ()=>setTimeout(displayCurrentCity, 100));
 

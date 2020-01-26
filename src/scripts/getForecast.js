@@ -12,7 +12,7 @@ async function getForecastByCity(city) {
         return mapToForecastObj(response);
     })
     .then(forecastData => updateForecastData(forecastData))
-    .catch(err => console.log('err'));
+    .catch(err => console.log(err));
 }
 
 
@@ -24,7 +24,7 @@ async function getForecastByCoordinates(lat, lon) {
         return mapToForecastObj(response);
     })
     .then(forecastData => updateForecastData(forecastData))
-    .catch(err => console.log('err'));
+    .catch(err => console.log(err));
 }
 
 
