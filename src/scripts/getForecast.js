@@ -1,5 +1,4 @@
 import {updateForecastData} from "./dataDisplay";
-// import { currentDate } from './dataGet';
 
 const key = process.env.API_KEY;
 const url = "https://api.openweathermap.org/data/2.5/";
@@ -9,39 +8,23 @@ async function getForecastByCity(city) {
     const urlCity = `${url}forecast?q=${city}&units=metric&appid=${key}`;
     fetch(urlCity)
     .then(response => {
-        if (response.ok) {
-            return mapToForecastObj(response);
-        } else {
-            throw new Error(response.status);
-        }
+        if (!response.ok) throw new Error(response.status);
+        return mapToForecastObj(response);
     })
     .then(forecastData => updateForecastData(forecastData))
-    .catch (err =>{
-        if (err.message == 404) {
-            console.log("Sorry, we couldn't find forecast data for your city.");
-        } else if (err.message == 401) {
-            console.log("Sorry, your API key is not correct.");
-        } else {
-            console.log("An unknown error occurred.");
-        }
-    })      
+    .catch(err => console.log(err));
 }
 
 
 async function getForecastByCoordinates(lat, lon) {
     let urlCity = `${url}forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
-    try {
-        const rawForecastData = await fetch(urlCity).then(response => {
-            if (response.status != 200) {
-              throw response.status;
-            }
-            return response;
-        });
-        const finalForecast = mapToForecastObj(rawForecastData);
-        return finalForecast;
-    } catch (err) {
-        console.log(err);
-    }
+    fetch(urlCity)
+    .then(response => {
+        if (!response.ok) throw new Error(response.status);
+        return mapToForecastObj(response);
+    })
+    .then(forecastData => updateForecastData(forecastData))
+    .catch(err => console.log(err));
 }
 
 

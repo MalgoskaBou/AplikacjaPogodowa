@@ -1,54 +1,60 @@
-import {updateCurrentData} from "./dataDisplay";
-import {renderCitiesList, saveData} from "./localStorage";
+import {updateCurrentData, updateTime} from "./dataDisplay";
+import {renderCitiesList, saveData} from "./dataSaveAndRead";
 
 const key = process.env.API_KEY;
 const url = "https://api.openweathermap.org/data/2.5/";
 
-
 async function getWeatherByCity(city) {
     const urlCity = `${url}weather?q=${city}&units=metric&appid=${key}`;
-
         fetch(urlCity)
         .then(response => {
-            if (response.ok) {
-                return mapToWeatherObj(response);
-            } else {
-                throw new Error(response.status);
-            }
+            if (!response.ok) throw new Error(response.status);
+            return mapToWeatherObj(response);
         })
         .then(weatherData => {
             updateCurrentData(weatherData);
-            saveData();
+            updateTime(weatherData.timezone);
+            setInterval(() => updateTime(weatherData.timezone), 30000);
+            saveData(weatherData.city);
             renderCitiesList();
             document.querySelector(".form__search").blur();
         })
         .catch(err => {
-            document.querySelector(".form__search").blur();
-            if (err.message == 404) {
-                alert("Sorry, we couldn't find weather data for your city.");
-            } else if (err.message == 401) {
-                alert("Sorry, your API key is not correct.");
+            if (err.message === '404') {
+                console.log('Not found. Failed to find the given city name.');
+                alert("Failed to find the given city name.");
             } else {
-                alert("An unknown error occurred.");
+                console.log(err);
+                alert("An error occurred. Failed to load the weather data.");
             }
-        });
+        })
 }
 
 
 async function getWeatherByCoordinates(lat, lon) {
-  let urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
-  try {
-    const rawWeatherData = await fetch(urlCity).then(response => {
-      if (response.status != 200) {
-        throw response.status;
-      }
-      return response;
-    });
-    const finalWeather = await mapToWeatherObj(rawWeatherData);
-    return finalWeather;
-  } catch (err) {
-    throw err;
-  }
+    const urlCity = `${url}weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
+
+        fetch(urlCity)
+        .then(response => {
+            if (!response.ok) throw new Error(response.status);
+            return mapToWeatherObj(response);
+        })
+        .then(weatherData => {
+            updateCurrentData(weatherData);
+            updateTime(weatherData.timezone);
+            setInterval(() => updateTime(weatherData.timezone), 30000);
+            saveData(weatherData.city);
+            renderCitiesList();
+        })
+        .catch(err => {
+            if (err.message === '404') {
+                console.log('Not found. Failed to find the given city name.');
+                alert("Failed to load weather data for your geolocation. Try to type the name of the city below.");
+            } else {
+                console.log(err);
+                alert("An error occurred. Failed to load the weather data.");
+            }
+        })
 }
 
 async function mapToWeatherObj(rawWeatherData) {
@@ -56,6 +62,7 @@ async function mapToWeatherObj(rawWeatherData) {
 
   const weatherInfo = {
     city: weatherObj.name,
+    country: weatherObj.sys.country,
     temp: Math.round(weatherObj.main.temp),
     tempMin: Math.round(weatherObj.main.temp_min),
     tempMax: Math.round(weatherObj.main.temp_max),
@@ -63,7 +70,8 @@ async function mapToWeatherObj(rawWeatherData) {
     pressure: weatherObj.main.pressure,
     humidity: weatherObj.main.humidity,
     description: weatherObj.weather[0].description,
-    icon: weatherObj.weather[0].icon
+    icon: weatherObj.weather[0].icon,
+    timezone: weatherObj.timezone,
   };
   return weatherInfo;
 }
