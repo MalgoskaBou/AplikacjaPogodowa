@@ -17,7 +17,7 @@ async function getWeatherByCity(city) {
             setInterval(() => updateTime(weatherData.timezone), 30000);
             saveData(weatherData.city);
             renderCitiesList();
-            // document.querySelector(".form__search").blur();
+            document.querySelector(".form__search").blur();
         })
         .catch(err => {
             if (err.message === '404') {

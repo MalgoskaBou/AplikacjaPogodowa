@@ -7,6 +7,11 @@ import {getCitesDb, findMatchingCities, renderMatchingCitiesList, changeActiveSu
 import './styles/main.css';
 
 require('./scripts/apikey');
+
+const searchForm = document.querySelector('.main__form');
+const searchInput = document.querySelector('.form__search');
+const savedCities = document.querySelector('.form__suggestions');
+const geolocationButton = document.querySelector('.localization__findme-btn');
 let citiesDb;
 
 async function weatherByGeolocation() {
@@ -19,8 +24,9 @@ async function weatherByGeolocation() {
 
 async function weatherByCity(e) {
 	e.preventDefault();
-	const city = e.target.querySelector('.form__search').value;
 	try {
+		const city = searchInput.value;
+		if (!city) return;
 		await getWeatherByCity(city);
 		await getForecastByCity(city);
 	} catch (err) {
@@ -55,7 +61,7 @@ async function displayMatchingCities (e) {
 
 function displayCurrentCity () {
 	const cities = getData();
-	const userInput = document.querySelector(".form__search");
+	const userInput = searchInput;
 	if (!cities.length) return;
 	if (userInput.value !== cities[0]) userInput.value = cities[0];
 }
@@ -71,14 +77,9 @@ async function startApp() {
 	} else {
 		await getWeatherByCity(cities[0]);
 		await getForecastByCity(cities[0]);
-		document.querySelector('.form__search').value = cities[0] || '';
+		searchInput.value = cities[0] || '';
 	}
 }
-
-const searchForm = document.querySelector('.main__form');
-const searchInput = document.querySelector('.form__search');
-const savedCities = document.querySelector('.form__suggestions');
-const geolocationButton = document.querySelector('.localization__findme-btn');
 
 document.addEventListener('DOMContentLoaded', startApp);
 geolocationButton.addEventListener('click', weatherByGeolocation);
@@ -86,5 +87,4 @@ searchForm.addEventListener('submit', weatherByCity);
 searchInput.addEventListener('input', displayMatchingCities);
 searchInput.addEventListener('keydown', changeActiveSuggestion);
 savedCities.addEventListener('click', weatherBySavedCity);
-searchInput.addEventListener('blur', ()=>setTimeout(displayCurrentCity, 100));
-
+searchInput.addEventListener('focusout', ()=>setTimeout(displayCurrentCity, 200));
