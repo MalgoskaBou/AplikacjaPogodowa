@@ -4,14 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "node server.js",
-		"heroku-postbuild": "webpack --config  ./config/webpack.config.prod.js",
-		"dev": "webpack-dev-server --config ./config/webpack.config.js",
+		"start": "webpack-dev-server --config ./config/webpack.config.js",
 		"prod": "webpack --config ./config/webpack.config.prod.js"
-	},
-	"engines": {
-		"node": "12.13.1",
-		"npm": "6.12.1"
 	},
 	"repository": {
 		"type": "git",
@@ -44,7 +38,6 @@
 		"webpack-dev-server": "^3.9.0"
 	},
 	"dependencies": {
-		"express": "^4.17.1",
 		"is-online": "^8.2.1"
 	}
 }
