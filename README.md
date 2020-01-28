@@ -1,5 +1,5 @@
 # Project Description
-> The application shows current weather in a given loacation as well as forecast for the next 4 days. <br />
+> The application shows current weather in a given location as well as forecast for the next 4 days. <br />
 Demo: [https://cc19weatherapp.herokuapp.com/](https://cc19weatherapp.herokuapp.com/)
 
 
@@ -11,23 +11,23 @@ Demo: [https://cc19weatherapp.herokuapp.com/](https://cc19weatherapp.herokuapp.c
 * [Authors](#authors)
 
 ## General info
-The main goal of this application is to check current weather.
+The main goal of this application is to check weather for users location or for chosen location.
 
 ## Technologies
 
 * HTML5
 * CSS
-* Webpack
 * JavaScript
+* Webpack
 
 ## Setup
 ### `npm i`
-### `npm run dev`
+### `npm start`
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Status
-Project is: _in progress_
+Project is: _finished_
 
 ## Authors
 Created by CodersCamp's members under the supervision of Małgorzata Bousoltane:
